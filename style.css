@@ -164,28 +164,130 @@ nav a {
     overflow: hidden;
     position: relative;
     margin-top: 40px;
+    outline: none; /* allow focus without outline; elements inside will show focus */
 }
 
-.carousel-track {
+/* tracks (original + clone) */
+.carousel-track,
+#carousel-track-clone {
     display: flex;
     gap: 60px;
     align-items: center;
     will-change: transform;
+    user-select: none;
+    pointer-events: auto;
 }
 
+/* Ensure clone shares same visual styles */
+#carousel-track-clone img {
+    width: clamp(90px, 12vw, 140px);
+    height: auto;
+    opacity: 0.85;
+    filter: grayscale(100%);
+    transition: transform 0.28s ease, opacity 0.28s ease, filter 0.28s ease;
+    flex-shrink: 0;
+}
+
+/* Images (original) */
 .carousel-track img {
     width: clamp(90px, 12vw, 140px);
     height: auto;
     opacity: 0.85;
     filter: grayscale(100%);
-    transition: 0.3s ease;
+    transition: transform 0.28s ease, opacity 0.28s ease, filter 0.28s ease;
     flex-shrink: 0;
+    display: block;
 }
 
-.carousel-track img:hover {
+/* hover effect */
+.carousel-track img:hover,
+#carousel-track-clone img:hover {
     opacity: 1;
     filter: grayscale(0%);
     transform: scale(1.08);
+}
+
+/* Controls container (hidden until hover/focus) */
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none; /* make invisible when hidden */
+    opacity: 0;
+    transition: opacity 200ms ease;
+    padding: 0 8px;
+}
+
+/* When wrapper hovered or focused, show controls */
+.carousel-wrapper:hover .carousel-controls,
+.carousel-wrapper:focus-within .carousel-controls {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Buttons */
+.carousel-btn {
+    background: rgba(0,0,0,0.55);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 150ms ease, background 150ms ease;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    outline: none;
+}
+
+.carousel-btn:hover,
+.carousel-btn:focus {
+    transform: scale(1.06);
+    background: rgba(0,0,0,0.7);
+}
+
+/* Positioning smaller on mobile */
+@media (max-width: 480px) {
+    .carousel-btn { width: 34px; height: 34px; font-size: 18px; }
+}
+
+/* Tooltip styling (B - estilizado) */
+#carousel-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    transform: translateY(-10px);
+    background: rgba(22, 24, 28, 0.95);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 13px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 140ms ease, transform 140ms ease;
+    box-shadow: 0 8px 24px rgba(2,6,23,0.25);
+    z-index: 40;
+}
+
+/* small caret below tooltip */
+#carousel-tooltip::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -6px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: rgba(22,24,28,0.95) transparent transparent transparent;
 }
 
 /* ---------------------- */
@@ -233,6 +335,12 @@ footer {
 
     .hamburger {
         display: block;
+    }
+
+    /* tune gap of logos on small screens */
+    .carousel-track,
+    #carousel-track-clone {
+        gap: 30px;
     }
 }
 
