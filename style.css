@@ -83,7 +83,7 @@ nav a {
     width: 100%;
     background: white;
     left: 0;
-    transition: all 0.4s ease;
+    transition: all 0.4s ease; /* transição suave */
     border-radius: 3px;
     opacity: 0.9;
 }
@@ -98,7 +98,7 @@ nav a {
 }
 
 .hamburger.active span:nth-child(2) {
-    opacity: 0;
+    opacity: 0; /* transparente */
 }
 
 .hamburger.active span:nth-child(3) {
@@ -165,27 +165,18 @@ nav a {
 /* ---------------------- */
 .sobre-logo {
     display: block;
-    margin: 0 auto 20px;
+    margin: 0 auto 20px auto;
     max-width: 200px;
-    height: auto;
-}
-
-/* Clientes */
-.clientes-logos {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.clientes-logos img {
-    max-width: 150px;
     height: auto;
 }
 
 /* ---------------------- */
 /* Fale Conosco           */
 /* ---------------------- */
+#contato {
+    background: #e5e7eb; /* Aplica a mesma cor de fundo da seção "Valores" */
+}
+
 .email-btn {
     display: inline-block;
     padding: 12px 18px;
@@ -205,8 +196,21 @@ footer {
     padding: 14px;
 }
 
-/* Botões */
-.cta-button, .voltar-btn {
+/* ---------------------- */
+/* Área Restrita          */
+/* ---------------------- */
+.restrito-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.restrito-container {
+    text-align: center;
+}
+
+.restrito-container .cta-button {
     display: inline-block;
     background: #2563eb;
     color: white;
@@ -215,25 +219,30 @@ footer {
     text-decoration: none;
 }
 
-.voltar-btn {
-    background: #6c757d;
+/* ------------------------------------ */
+/* Logo centralizada na página restrita */
+/* ------------------------------------ */
+.restrito-logo {
+    display: block;
+    margin: 20px auto; /* centraliza horizontalmente com espaço acima/baixo */
+    max-width: 200px;
+    width: 100%;      /* permite reduzir em telas menores */
+    height: auto;      /* mantém proporção */
 }
 
-/* Footer Link */
-.footer-link {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.footer-link:hover {
-    text-decoration: underline;
+/* Responsivo para telas pequenas */
+@media (max-width: 480px) {
+    .restrito-logo {
+        max-width: 150px; /* reduz o tamanho máximo em smartphones */
+        margin: 15px auto; /* menos espaço vertical */
+    }
 }
 
 /* ---------------------- */
-/* Responsivo             */
+/* RESPONSIVO             */
 /* ---------------------- */
 @media (max-width: 768px) {
+
     .nav-menu {
         position: absolute;
         top: 70px;
