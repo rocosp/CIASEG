@@ -233,6 +233,26 @@ footer {
         margin: 15px auto; /* menos espaço vertical */
     }
 }
+
+/* --------------------- */
+/* Botão voltar ao site */
+/* -------------------- */
+.back-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 16px;
+    background: #6b7280; /* cinza suave */
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #4b5563; /* escurece ao passar o mouse */
+}
+
 /* ---------------------- */
 /* RESPONSIVO             */
 /* ---------------------- */
