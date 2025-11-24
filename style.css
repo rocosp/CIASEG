@@ -113,3 +113,61 @@ footer {
     border-radius: 8px;
     text-decoration: none;
 }
+
+/* Logo */
+.logo-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    height: 48px;
+}
+
+/* Nav padrão (desktop) */
+.nav-menu {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    /* Nav some no mobile */
+    .nav-menu {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: #111827;
+        width: 100%;
+        padding: 20px 0;
+        flex-direction: column;
+        display: none;
+        text-align: center;
+    }
+
+    .nav-menu a {
+        margin: 14px 0;
+        font-size: 18px;
+        display: block;
+    }
+
+    /* Mostrar menu quando ativo */
+    .nav-menu.active {
+        display: flex;
+    }
+
+    /* Hamburguer aparece no mobile */
+    .hamburger {
+        display: block;
+    }
+}
