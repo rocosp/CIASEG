@@ -242,3 +242,104 @@ footer {
         display: block;
     }
 }
+
+/* ---------------------- */
+/* Área Restrita          */
+/* ---------------------- */
+.restrito-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.restrito-container {
+    text-align: center;
+}
+
+.restrito-container .cta-button {
+    display: inline-block;
+    background: #2563eb;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+/* ------------------------------------ */
+/* Logo centralizada na página restrita */
+/* ------------------------------------ */
+.restrito-logo {
+    display: block;
+    margin: 20px auto; /* centraliza horizontalmente com espaço acima/baixo */
+    max-width: 200px;
+    width: 100%;      /* permite reduzir em telas menores */
+    height: auto;      /* mantém proporção */
+}
+
+/* Responsivo para telas pequenas */
+@media (max-width: 480px) {
+    .restrito-logo {
+        max-width: 150px; /* reduz o tamanho máximo em smartphones */
+        margin: 15px auto; /* menos espaço vertical */
+    }
+}
+
+/* ---------------------- */
+/* Botão voltar ao site    */
+/* ---------------------- */
+.back-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 16px;
+    background: #6b7280; /* cinza suave */
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #4b5563; /* escurece ao passar o mouse */
+}
+
+/* Responsivo para telas pequenas */
+@media (max-width: 480px) {
+    .restrito-logo {
+        max-width: 150px; /* reduz tamanho em smartphones */
+        margin: 15px auto;
+    }
+}
+
+/* ---------------------- */
+/* RESPONSIVO             */
+/* ---------------------- */
+@media (max-width: 768px) {
+
+    .nav-menu {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: #111827;
+        width: 100%;
+        padding: 20px 0;
+        flex-direction: column;
+        display: none;
+        text-align: center;
+    }
+
+    .nav-menu a {
+        margin: 14px 0;
+        font-size: 18px;
+        display: block;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
