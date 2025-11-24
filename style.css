@@ -168,16 +168,11 @@ nav a {
     margin: 0 auto 20px auto;
     max-width: 200px;
     height: auto;
-    transition: transform 0.3s ease; /* Suaviza a transição da imagem */
 }
 
 /* ---------------------- */
 /* Fale Conosco           */
 /* ---------------------- */
-#contato {
-    background: #e5e7eb; /* Aplica a mesma cor de fundo da seção "Valores" */
-}
-
 .email-btn {
     display: inline-block;
     padding: 12px 18px;
@@ -236,6 +231,33 @@ footer {
     .restrito-logo {
         max-width: 150px; /* reduz o tamanho máximo em smartphones */
         margin: 15px auto; /* menos espaço vertical */
+    }
+}
+
+/* ---------------------- */
+/* Botão voltar ao site    */
+/* ---------------------- */
+.back-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 16px;
+    background: #6b7280; /* cinza suave */
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #4b5563; /* escurece ao passar o mouse */
+}
+
+/* Responsivo para telas pequenas */
+@media (max-width: 480px) {
+    .restrito-logo {
+        max-width: 150px; /* reduz tamanho em smartphones */
+        margin: 15px auto;
     }
 }
 
