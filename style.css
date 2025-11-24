@@ -170,7 +170,7 @@ nav a {
     display: flex;
     gap: 60px;
     align-items: center;
-    animation: slide 12s linear infinite;    
+    animation: slide 10s linear infinite;    
 }
 
 .carousel-track img {
