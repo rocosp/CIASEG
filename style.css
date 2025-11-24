@@ -83,8 +83,9 @@ nav a {
     width: 100%;
     background: white;
     left: 0;
-    transition: 0.3s ease;
+    transition: all 0.4s ease; /* transição suave */
     border-radius: 3px;
+    opacity: 0.9;
 }
 
 .hamburger span:nth-child(1) { top: 0; }
@@ -97,7 +98,7 @@ nav a {
 }
 
 .hamburger.active span:nth-child(2) {
-    opacity: 0;
+    opacity: 0; /* transparente */
 }
 
 .hamburger.active span:nth-child(3) {
@@ -130,6 +131,18 @@ nav a {
 /* ---------------------- */
 .section {
     padding: 70px 0;
+}
+
+/* Reveal Sequencial */
+.reveal-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.reveal-item.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .section.alt {
@@ -207,7 +220,6 @@ footer {
 /* ---------------------- */
 @media (max-width: 768px) {
 
-    /* Nav vira dropdown */
     .nav-menu {
         position: absolute;
         top: 70px;
@@ -226,12 +238,10 @@ footer {
         display: block;
     }
 
-    /* Mostra mobile quando ativo */
     .nav-menu.active {
         display: flex;
     }
 
-    /* Mostra o hambúrguer */
     .hamburger {
         display: block;
     }
