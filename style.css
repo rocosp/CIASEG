@@ -46,7 +46,7 @@ header .container {
     margin-left: 10px;
 }
 
-/* Nav (desktop) */
+/* Nav */
 .nav-menu {
     display: flex;
     gap: 20px;
@@ -83,9 +83,8 @@ nav a {
     width: 100%;
     background: white;
     left: 0;
-    transition: all 0.4s ease; /* transição suave */
+    transition: all 0.4s ease;
     border-radius: 3px;
-    opacity: 0.9;
 }
 
 .hamburger span:nth-child(1) { top: 0; }
@@ -98,7 +97,7 @@ nav a {
 }
 
 .hamburger.active span:nth-child(2) {
-    opacity: 0; /* transparente */
+    opacity: 0;
 }
 
 .hamburger.active span:nth-child(3) {
@@ -133,18 +132,6 @@ nav a {
     padding: 70px 0;
 }
 
-/* Reveal Sequencial */
-.reveal-item {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease-out;
-}
-
-.reveal-item.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 .section.alt {
     background: #e5e7eb;
 }
@@ -154,15 +141,26 @@ nav a {
     margin: auto;
 }
 
+/* Reveal animation */
+.reveal-item {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease-out;
+}
+
+.reveal-item.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Serviços */
 .servicos-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 30px;
 }
 
-/* ---------------------- */
-/* Imagem Sobre           */
-/* ---------------------- */
+/* Sobre */
 .sobre-logo {
     display: block;
     margin: 0 auto 20px auto;
@@ -171,8 +169,45 @@ nav a {
 }
 
 /* ---------------------- */
-/* Fale Conosco           */
+/* CLIENTES (nova seção)  */
 /* ---------------------- */
+
+.clientes-section {
+    background: #ffffff;
+    text-align: center;
+}
+
+.logos-clientes {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* Logos responsivas e com animação */
+.logos-clientes img {
+    width: clamp(100px, 14vw, 150px);
+    opacity: 0.8;
+    filter: grayscale(40%);
+    border-radius: 6px;
+    transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+}
+
+.logos-clientes img:hover {
+    transform: scale(1.09);
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+/* ---------------------- */
+/* Contato (nova cor)     */
+/* ---------------------- */
+#contato {
+    background: #e5e7eb;
+}
+
 .email-btn {
     display: inline-block;
     padding: 12px 18px;
@@ -193,76 +228,7 @@ footer {
 }
 
 /* ---------------------- */
-/* Área Restrita          */
-/* ---------------------- */
-.restrito-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.restrito-container {
-    text-align: center;
-}
-
-.restrito-container .cta-button {
-    display: inline-block;
-    background: #2563eb;
-    color: white;
-    padding: 14px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-}
-
-/* ------------------------------------ */
-/* Logo centralizada na página restrita */
-/* ------------------------------------ */
-.restrito-logo {
-    display: block;
-    margin: 20px auto; /* centraliza horizontalmente com espaço acima/baixo */
-    max-width: 200px;
-    width: 100%;      /* permite reduzir em telas menores */
-    height: auto;      /* mantém proporção */
-}
-
-/* Responsivo para telas pequenas */
-@media (max-width: 480px) {
-    .restrito-logo {
-        max-width: 150px; /* reduz o tamanho máximo em smartphones */
-        margin: 15px auto; /* menos espaço vertical */
-    }
-}
-
-/* ---------------------- */
-/* Botão voltar ao site    */
-/* ---------------------- */
-.back-btn {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 16px;
-    background: #6b7280; /* cinza suave */
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: 500;
-    transition: background 0.3s ease;
-}
-
-.back-btn:hover {
-    background: #4b5563; /* escurece ao passar o mouse */
-}
-
-/* Responsivo para telas pequenas */
-@media (max-width: 480px) {
-    .restrito-logo {
-        max-width: 150px; /* reduz tamanho em smartphones */
-        margin: 15px auto;
-    }
-}
-
-/* ---------------------- */
-/* RESPONSIVO             */
+/* Responsivo             */
 /* ---------------------- */
 @media (max-width: 768px) {
 
