@@ -3,86 +3,90 @@
 */
 
 /* --- Variables / palette --- */
-:root{
-  --bg: #f7f8fb;
-  --text: #1f2937;    /* near-black */
-  --muted: #6b7280;
-  --primary: #0f4fd1; /* deep blue */
-  --accent: #1e90ff;  /* lighter accent */
-  --card: #ffffff;
-  --radius: 10px;
-  --max-width: 1100px;
-  --container-pad: 20px;
-  --shadow: 0 6px 20px rgba(16,24,40,0.08);
-  --accent-2: #0b61c7;
+:root {
+padding: 12px 22px;
+background: var(--primary);
+color: var(--light);
+text-decoration: none;
+border-radius: 6px;
+font-weight: 600;
+transition: 0.2s;
+}
+.cta-button:hover { background: #0d3fb0; }
+
+
+/* SECTIONS */
+.section {
+padding: 60px 0;
 }
 
-/* --- Reset / base --- */
-*{box-sizing:border-box}
-html,body{height:100%; margin:0; font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:var(--text); background:var(--bg); -webkit-font-smoothing:antialiased;}
-a { color:var(--primary); text-decoration:none; }
-.container{width:calc(100% - 40px); max-width:var(--max-width); margin:0 auto; padding:0 var(--container-pad);}
 
-/* --- Header --- */
-header{
-  background: linear-gradient(180deg, #0f1724 0%, #0b1220 100%);
-  color:white;
-  position:sticky;
-  top:0;
-  z-index:50;
-  box-shadow: 0 2px 10px rgba(2,6,23,0.15);
-}
-.header-flex{ display:flex; align-items:center; gap:18px; height:72px; justify-content:space-between; }
-.logo-img { width:58px; height:58px; object-fit:contain; border-radius:8px; background:rgba(255,255,255,0.03); padding:4px; }
-.logo { font-size:18px; margin:0; font-weight:700; letter-spacing:0.3px; color:white; display:inline-block; margin-left:8px; vertical-align:middle; }
-
-/* nav */
-header nav{ display:flex; align-items:center; gap:18px; margin-left:auto; }
-header nav a{ color:rgba(255,255,255,0.9); font-weight:500; padding:6px 10px; border-radius:6px; }
-header nav a:hover{ background:rgba(255,255,255,0.04); }
-.restrito-btn{ background:var(--accent); color:white; padding:10px 14px; border-radius:8px; font-weight:600; box-shadow: 0 4px 14px rgba(14,90,255,0.12); }
-
-/* --- Hero --- */
-.hero{ display:flex; align-items:center; padding:64px 0; gap:30px; }
-.hero .hero-content{ flex:1; }
-.hero h2{ font-size:32px; color:var(--card); margin:0 0 14px 0; line-height:1.12; font-weight:700; color:white; }
-.hero p{ color:rgba(255,255,255,0.88); max-width:720px; margin-bottom:18px; }
-.cta-button{ display:inline-block; background:var(--card); color:var(--accent-2); padding:12px 18px; border-radius:8px; font-weight:700; text-decoration:none; }
-
-/* hero image */
-.hero-img{ width:420px; max-width:40%; border-radius:14px; box-shadow:var(--shadow); object-fit:cover; }
-
-/* --- Sections --- */
-.section{ padding:54px 0; background:transparent; }
-.section.alt{ background:#ffffff; box-shadow: 0 2px 10px rgba(16,24,40,0.03); border-radius:12px; margin:24px auto; padding:48px 0; }
-.section h2{ font-size:24px; margin-bottom:12px; color:var(--text); }
-.section p{ color:var(--muted); line-height:1.62; }
-
-/* images inside sections */
-.section-img{ width:100%; max-width:720px; border-radius:10px; margin:18px 0; box-shadow:var(--shadow); }
-
-/* --- Services grid --- */
-.servicos-list{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:18px; list-style:none; padding:0; margin:0; }
-.servicos-list li{ background:var(--card); padding:20px; border-radius:12px; box-shadow:var(--shadow); }
-.servicos-list h3{ margin:0 0 8px 0; font-size:18px; color:var(--primary); }
-.servicos-list p{ margin:0; color:var(--muted); font-size:14px; }
-
-/* contato */
-.email-btn{ display:inline-block; padding:12px 18px; background:var(--primary); color:white; border-radius:8px; text-decoration:none; font-weight:600; }
-
-/* footer */
-footer{ text-align:center; padding:24px 0; color:var(--muted); font-size:14px; margin-top:36px; }
-
-/* small screens */
-@media (max-width:900px){
-  .hero{ flex-direction:column; padding:40px 0; }
-  .hero-img{ max-width:100%; width:100%; }
-  header nav{ display:none; } /* keep simple on mobile; you can implement burger if needed */
-  .header-flex{ justify-content:flex-start; gap:12px; padding:8px 0; }
-  .logo { display:none; } /* show only image for compact header */
-  .container{ padding:0 16px; }
+.section h2 {
+font-size: 1.8rem;
+margin-bottom: 20px;
+color: var(--dark);
 }
 
-/* make links accessible */
-a:focus{ outline:3px solid rgba(16,24,40,0.08); outline-offset:3px; border-radius:6px; }
+
+.section p { margin-bottom: 20px; }
+
+
+/* LIST */
+.servicos-list {
+list-style: none;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 25px;
+}
+
+
+.servicos-list li {
+background: #f7f9fc;
+padding: 20px;
+border-radius: 10px;
+border: 1px solid #e2e8f0;
+}
+
+
+.servicos-list h3 {
+font-size: 1.2rem;
+margin-bottom: 10px;
+color: var(--primary);
+}
+
+
+/* FOOTER */
+footer {
+background: var(--dark);
+color: var(--light);
+text-align: center;
+padding: 25px 0;
+margin-top: 40px;
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+nav {
+position: absolute;
+top: 75px;
+right: 0;
+background: var(--light);
+width: 200px;
+padding: 20px;
+display: none;
+flex-direction: column;
+border-left: 1px solid var(--gray);
+border-bottom: 1px solid var(--gray);
+}
+
+
+nav a {
+margin: 15px 0;
+}
+
+
+nav.open { display: flex; }
+.menu-toggle { display: flex; }
+}
 
