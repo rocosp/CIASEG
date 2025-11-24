@@ -14,7 +14,7 @@
     <div class="container">
         
         <div class="logo-group">
-            <img src="assets/logo_cut.png" class="logo-img" alt="Logo CIASEG">
+            <img src="assets/logo_cut.png" class="logo-img" alt="">
             <h1 class="logo-title">CIASEG Inspeção de Sinistros</h1>
         </div>
 
@@ -33,6 +33,9 @@
         </div>
 
     </div>
+
+    <!-- Overlay escuro atrás do menu -->
+    <div class="menu-overlay" id="menu-overlay"></div>
 </header>
     
     <section class="hero">
@@ -128,10 +131,30 @@
 <script>
     const hamb = document.getElementById("hamburger");
     const menu = document.querySelector(".nav-menu");
+    const overlay = document.getElementById("menu-overlay");
+    const header = document.querySelector("header");
 
+    // Abrir/fechar menu
     hamb.addEventListener("click", () => {
         hamb.classList.toggle("active");
         menu.classList.toggle("active");
+        overlay.classList.toggle("active");
+    });
+
+    // Fechar menu ao clicar no overlay
+    overlay.addEventListener("click", () => {
+        hamb.classList.remove("active");
+        menu.classList.remove("active");
+        overlay.classList.remove("active");
+    });
+
+    // Sombra no header ao rolar
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 20) {
+            header.classList.add("shadow");
+        } else {
+            header.classList.remove("shadow");
+        }
     });
 </script>
 
