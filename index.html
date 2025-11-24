@@ -14,7 +14,7 @@
     <div class="container">
         
         <div class="logo-group">
-            <a href="index.html"><img src="assets/logo_cut.png" class="logo-img" alt="Logo CIASEG"></a>
+            <img src="assets/logo_cut.png" class="logo-img" alt="Logo CIASEG">
             <h1 class="logo-title">CIASEG Inspeção de Sinistros</h1>
         </div>
 
@@ -25,7 +25,7 @@
             <a class="restrito-btn" href="restrito.html">Portal</a>
         </nav>
 
-        <!-- Botão Hamburguer Animado -->
+        <!-- Botão Hambúrguer Animado -->
         <div class="hamburger" id="hamburger">
             <span></span>
             <span></span>
@@ -55,7 +55,7 @@
 
 <section id="sobre" class="section reveal">
     <div class="container">
-         <!-- Imagem centralizada -->
+        <!-- Imagem centralizada -->
         <img src="assets/logo.png" alt="Logo CIASEG" class="sobre-logo reveal-item">
 
         <h2 class="reveal-item">Sobre a Empresa</h2>
@@ -108,19 +108,6 @@
     </div>
 </section>
 
-<section id="clientes" class="section">
-    <div class="container">
-        <h2>Principais Clientes</h2>
-        <div class="clientes-logos">
-            <img src="assets/logo_cut.png" alt="Cliente 1">
-            <img src="assets/logo_cut.png" alt="Cliente 2">
-            <img src="assets/logo_cut.png" alt="Cliente 3">
-            <img src="assets/logo_cut.png" alt="Cliente 4">
-            <img src="assets/logo_cut.png" alt="Cliente 5">
-        </div>
-    </div>
-</section>
-    
 <section id="contato" class="section">
     <div class="container">
         <h2>Fale Conosco</h2>
@@ -132,16 +119,33 @@
 </section>
 
 <footer>
-    <p>© 2025 CIASEG Inspeção de Sinistros — Todos os direitos reservados. | <a href="index.html" style="color: #2563eb;">Voltar ao site</a></p>
+    <p>© 2025 CIASEG Inspeção de Sinistros — Todos os direitos reservados.</p>
 </footer>
 
 <script>
+    // Menu hamburguer
     const hamb = document.getElementById("hamburger");
     const menu = document.querySelector(".nav-menu");
 
     hamb.addEventListener("click", () => {
         hamb.classList.toggle("active");
         menu.classList.toggle("active");
+    });
+
+    // Scroll reveal sequencial
+    const reveals = document.querySelectorAll(".reveal-item");
+    window.addEventListener("scroll", () => {
+        for (let i = 0; i < reveals.length; i++) {
+            const windowHeight = window.innerHeight;
+            const revealTop = reveals[i].getBoundingClientRect().top;
+            const revealPoint = 150;
+
+            if (revealTop < windowHeight - revealPoint) {
+                setTimeout(() => {
+                    reveals[i].classList.add("active");
+                }, i * 150); // delay sequencial 150ms
+            }
+        }
     });
 </script>
 
