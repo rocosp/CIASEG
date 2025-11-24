@@ -215,6 +215,24 @@ footer {
     text-decoration: none;
 }
 
+/* ------------------------------------ */
+/* Logo centralizada na página restrita */
+/* ------------------------------------ */
+.restrito-logo {
+    display: block;
+    margin: 20px auto; /* centraliza horizontalmente com espaço acima/baixo */
+    max-width: 200px;
+    width: 100%;      /* permite reduzir em telas menores */
+    height: auto;      /* mantém proporção */
+}
+
+/* Responsivo para telas pequenas */
+@media (max-width: 480px) {
+    .restrito-logo {
+        max-width: 150px; /* reduz o tamanho máximo em smartphones */
+        margin: 15px auto; /* menos espaço vertical */
+    }
+}
 /* ---------------------- */
 /* RESPONSIVO             */
 /* ---------------------- */
