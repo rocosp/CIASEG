@@ -234,9 +234,9 @@ footer {
     }
 }
 
-/* --------------------- */
-/* Botão voltar ao site */
-/* -------------------- */
+/* ---------------------- */
+/* Botão voltar ao site    */
+/* ---------------------- */
 .back-btn {
     display: inline-block;
     margin-top: 15px;
@@ -251,6 +251,14 @@ footer {
 
 .back-btn:hover {
     background: #4b5563; /* escurece ao passar o mouse */
+}
+
+/* Responsivo para telas pequenas */
+@media (max-width: 480px) {
+    .restrito-logo {
+        max-width: 150px; /* reduz tamanho em smartphones */
+        margin: 15px auto;
+    }
 }
 
 /* ---------------------- */
