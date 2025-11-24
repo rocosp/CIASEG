@@ -1,92 +1,115 @@
-/* style.css - CIASEG Inspeção de Sinistros
-   Modern, clean, responsive; pairs with the provided HTML.
-*/
-
-/* --- Variables / palette --- */
-:root {
-padding: 12px 22px;
-background: var(--primary);
-color: var(--light);
-text-decoration: none;
-border-radius: 6px;
-font-weight: 600;
-transition: 0.2s;
-}
-.cta-button:hover { background: #0d3fb0; }
-
-
-/* SECTIONS */
-.section {
-padding: 60px 0;
+/* style.css - CIASEG Inspeção de Sinistros*/
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fafafa;
+    color: #222;
 }
 
-
-.section h2 {
-font-size: 1.8rem;
-margin-bottom: 20px;
-color: var(--dark);
+/* Header */
+header {
+    background: #111827;
+    padding: 14px 0;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-
-.section p { margin-bottom: 20px; }
-
-
-/* LIST */
-.servicos-list {
-list-style: none;
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-gap: 25px;
+header .container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-
-
-.servicos-list li {
-background: #f7f9fc;
-padding: 20px;
-border-radius: 10px;
-border: 1px solid #e2e8f0;
-}
-
-
-.servicos-list h3 {
-font-size: 1.2rem;
-margin-bottom: 10px;
-color: var(--primary);
-}
-
-
-/* FOOTER */
-footer {
-background: var(--dark);
-color: var(--light);
-text-align: center;
-padding: 25px 0;
-margin-top: 40px;
-}
-
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-nav {
-position: absolute;
-top: 75px;
-right: 0;
-background: var(--light);
-width: 200px;
-padding: 20px;
-display: none;
-flex-direction: column;
-border-left: 1px solid var(--gray);
-border-bottom: 1px solid var(--gray);
-}
-
 
 nav a {
-margin: 15px 0;
+    margin-left: 20px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
 }
 
-
-nav.open { display: flex; }
-.menu-toggle { display: flex; }
+.restrito-btn {
+    background: #2563eb;
+    padding: 10px 16px;
+    border-radius: 6px;
 }
 
+/* Hero */
+.hero {
+    background: linear-gradient(135deg, #1e3a8a, #2563eb);
+    padding: 120px 0;
+    text-align: center;
+    color: white;
+}
+
+.hero .cta-button {
+    margin-top: 20px;
+    display: inline-block;
+    background: #fff;
+    color: #1e3a8a;
+    padding: 14px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+/* Sections */
+.section {
+    padding: 70px 0;
+}
+
+.section.alt {
+    background: #e5e7eb;
+}
+
+.section .container {
+    width: 90%;
+    margin: auto;
+}
+
+.servicos-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+}
+
+/* Fale Conosco */
+.email-btn {
+    display: inline-block;
+    padding: 12px 18px;
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    background: #111827;
+    color: white;
+    padding: 14px;
+}
+
+/* Área restrita */
+.restrito-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.restrito-container {
+    text-align: center;
+}
+
+.restrito-container .cta-button {
+    display: inline-block;
+    background: #2563eb;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+}
