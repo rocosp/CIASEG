@@ -151,7 +151,7 @@ nav a {
 }
 
 /* ---------------------- */
-/* CLIENTES — CARROSSEL */
+/* CLIENTES — CARROSSEL (NARROW) */
 /* ---------------------- */
 
 .clientes-section {
@@ -164,107 +164,120 @@ nav a {
     overflow: hidden;
     position: relative;
     margin-top: 40px;
-    outline: none; /* allow focus without outline; elements inside will show focus */
+    outline: none;
 }
 
-/* tracks (original + clone) */
-.carousel-track,
-#carousel-track-clone {
-    display: flex;
-    gap: 60px;
-    align-items: center;
-    will-change: transform;
-    user-select: none;
-    pointer-events: auto;
-}
-
-/* Ensure clone shares same visual styles */
-#carousel-track-clone img {
-    width: clamp(90px, 12vw, 140px);
-    height: auto;
-    opacity: 0.85;
-    filter: grayscale(100%);
-    transition: transform 0.28s ease, opacity 0.28s ease, filter 0.28s ease;
-    flex-shrink: 0;
-}
-
-/* Images (original) */
-.carousel-track img {
-    width: clamp(90px, 12vw, 140px);
-    height: auto;
-    opacity: 0.85;
-    filter: grayscale(100%);
-    transition: transform 0.28s ease, opacity 0.28s ease, filter 0.28s ease;
-    flex-shrink: 0;
+/* NARROW variant: reduce height and center logos vertically for a sleek stripe */
+.carousel-wrapper.narrow {
+    padding: 24px 0;
     display: block;
 }
 
-/* hover effect */
-.carousel-track img:hover,
-#carousel-track-clone img:hover {
-    opacity: 1;
-    filter: grayscale(0%);
-    transform: scale(1.08);
-}
-
-/* Controls container (hidden until hover/focus) */
-.carousel-controls {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    transform: translateY(-50%);
+/* track */
+.carousel-track {
     display: flex;
-    justify-content: space-between;
-    pointer-events: none; /* make invisible when hidden */
-    opacity: 0;
-    transition: opacity 200ms ease;
-    padding: 0 8px;
+    gap: 36px;
+    align-items: center;
+    will-change: transform;
+    transition: transform 120ms linear;
 }
 
-/* When wrapper hovered or focused, show controls */
-.carousel-wrapper:hover .carousel-controls,
-.carousel-wrapper:focus-within .carousel-controls {
+/* images */
+.carousel-track img {
+    width: clamp(84px, 10vw, 120px);
+    height: auto;
+    opacity: 0.92;
+    filter: grayscale(90%);
+    transition: transform 0.28s ease, filter 0.28s ease, opacity 0.28s ease;
+    flex-shrink: 0;
+    display:block;
+}
+
+/* hover effect (visual only) */
+.carousel-track img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.06);
+}
+
+/* paused visual indicator when user paused by click */
+.carousel-track img.paused {
+    outline: 3px solid rgba(37,99,235,0.12);
+    border-radius: 6px;
+}
+
+/* ---------------------- */
+/* CENTRALIZED narrow control (glass effect) */
+/* ---------------------- */
+.carousel-center-control {
+    position: absolute;
+    right: 10px; /* stick to right with small margin */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 46px; /* narrow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 6px 20px rgba(8,15,30,0.12);
+    opacity: 0;
+    transition: opacity 180ms ease, transform 180ms ease;
+    pointer-events: none; /* inactive until shown */
+    z-index: 30;
+}
+
+/* show control on hover/focus */
+.carousel-wrapper.narrow:hover .carousel-center-control,
+.carousel-wrapper.narrow:focus-within .carousel-center-control {
     opacity: 1;
     pointer-events: auto;
+    transform: translateY(-50%) scale(1.00);
 }
 
-/* Buttons */
-.carousel-btn {
-    background: rgba(0,0,0,0.55);
+/* center arrow buttons (small) */
+.center-arrow {
+    background: rgba(20,25,30,0.6);
     color: white;
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     border-radius: 999px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
+    font-size: 16px;
     cursor: pointer;
-    transition: transform 150ms ease, background 150ms ease;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    transition: transform 140ms ease, background 140ms ease;
     outline: none;
 }
 
-.carousel-btn:hover,
-.carousel-btn:focus {
+.center-arrow:hover,
+.center-arrow:focus {
     transform: scale(1.06);
-    background: rgba(0,0,0,0.7);
+    background: rgba(20,25,30,0.8);
 }
 
-/* Positioning smaller on mobile */
-@media (max-width: 480px) {
-    .carousel-btn { width: 34px; height: 34px; font-size: 18px; }
+/* small dividing line inside pill (purely decorative) */
+.carousel-center-control .center-line {
+    width: 1px;
+    height: 6px;
+    background: rgba(255,255,255,0.08);
 }
 
-/* Tooltip styling (B - estilizado) */
+/* ---------------------- */
+/* Tooltip styling (estilizado) */
+/* ---------------------- */
 #carousel-tooltip {
     position: absolute;
     bottom: 100%;
     left: 0;
-    transform: translateY(-10px);
-    background: rgba(22, 24, 28, 0.95);
+    transform: translateY(-12px) translateX(-50%);
+    background: rgba(22, 24, 28, 0.96);
     color: #fff;
     padding: 8px 12px;
     border-radius: 6px;
@@ -278,7 +291,7 @@ nav a {
     z-index: 40;
 }
 
-/* small caret below tooltip */
+/* caret */
 #carousel-tooltip::after {
     content: "";
     position: absolute;
@@ -287,7 +300,7 @@ nav a {
     bottom: -6px;
     border-width: 6px;
     border-style: solid;
-    border-color: rgba(22,24,28,0.95) transparent transparent transparent;
+    border-color: rgba(22,24,28,0.96) transparent transparent transparent;
 }
 
 /* ---------------------- */
@@ -314,34 +327,22 @@ footer {
     padding: 14px;
 }
 
-/* RESPONSIVIDADE */
+/* RESPONSIVIDADE tweaks */
+@media (max-width: 1024px) {
+    .carousel-track img { width: clamp(70px, 12vw, 100px); }
+    .carousel-center-control { right: 8px; width: 44px; }
+}
+
 @media (max-width: 768px) {
+    .carousel-track { gap: 24px; }
+    .carousel-track img { width: clamp(60px, 18vw, 86px); }
+    .carousel-center-control { right: 6px; width: 40px; }
+}
 
-    .nav-menu {
-        display: none;
-        flex-direction: column;
-        background: #111827;
-        width: 100%;
-        padding: 20px 0;
-        position: absolute;
-        top: 70px;
-        right: 0;
-        text-align: center;
-    }
-
-    .nav-menu.active {
-        display: flex;
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    /* tune gap of logos on small screens */
-    .carousel-track,
-    #carousel-track-clone {
-        gap: 30px;
-    }
+@media (max-width: 480px) {
+    .carousel-center-control { display: none; } /* mobile: avoid overlay; user can swipe */
+    .carousel-track { gap: 18px; }
+    .carousel-track img { width: clamp(56px, 22vw, 76px); }
 }
 
 /* ---------------------- */
@@ -390,11 +391,4 @@ footer {
 
 .back-btn:hover {
     background: #4b5563;
-}
-
-@media (max-width: 480px) {
-    .restrito-logo {
-        max-width: 150px;
-        margin: 15px auto;
-    }
 }
