@@ -1,8 +1,8 @@
-/* style.css - CIASEG Inspeção de Sinistros*/
+/* style.css - CIASEG Inspeção de Sinistros */
+
 /* ---------------------- */
 /* Base                   */
 /* ---------------------- */
-
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -13,7 +13,6 @@ body {
 /* ---------------------- */
 /* Header                 */
 /* ---------------------- */
-
 header {
     background: #111827;
     padding: 14px 0;
@@ -66,11 +65,9 @@ nav a {
     border-radius: 6px;
 }
 
-
 /* ---------------------- */
 /* Hambúrguer Animado     */
 /* ---------------------- */
-
 .hamburger {
     display: none;
     width: 28px;
@@ -94,7 +91,6 @@ nav a {
 .hamburger span:nth-child(2) { top: 9px; }
 .hamburger span:nth-child(3) { top: 18px; }
 
-/* Estado ativo → vira X */
 .hamburger.active span:nth-child(1) {
     transform: rotate(45deg);
     top: 9px;
@@ -109,11 +105,9 @@ nav a {
     top: 9px;
 }
 
-
 /* ---------------------- */
 /* Hero                   */
 /* ---------------------- */
-
 .hero {
     background: linear-gradient(135deg, #1e3a8a, #2563eb);
     padding: 120px 0;
@@ -134,7 +128,6 @@ nav a {
 /* ---------------------- */
 /* Sections               */
 /* ---------------------- */
-
 .section {
     padding: 70px 0;
 }
@@ -155,9 +148,18 @@ nav a {
 }
 
 /* ---------------------- */
+/* Imagem Sobre           */
+/* ---------------------- */
+.sobre-logo {
+    display: block;
+    margin: 0 auto 20px auto;
+    max-width: 200px;
+    height: auto;
+}
+
+/* ---------------------- */
 /* Fale Conosco           */
 /* ---------------------- */
-
 .email-btn {
     display: inline-block;
     padding: 12px 18px;
@@ -170,7 +172,6 @@ nav a {
 /* ---------------------- */
 /* Rodapé                 */
 /* ---------------------- */
-
 footer {
     text-align: center;
     background: #111827;
@@ -181,7 +182,6 @@ footer {
 /* ---------------------- */
 /* Área Restrita          */
 /* ---------------------- */
-
 .restrito-page {
     display: flex;
     justify-content: center;
@@ -205,7 +205,6 @@ footer {
 /* ---------------------- */
 /* RESPONSIVO             */
 /* ---------------------- */
-
 @media (max-width: 768px) {
 
     /* Nav vira dropdown */
