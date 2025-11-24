@@ -168,6 +168,7 @@ nav a {
     margin: 0 auto 20px auto;
     max-width: 200px;
     height: auto;
+    transition: transform 0.3s ease; /* Suaviza a transição da imagem */
 }
 
 /* ---------------------- */
