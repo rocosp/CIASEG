@@ -179,32 +179,49 @@ window.addEventListener("scroll", () => {
    ============================ */
 document.addEventListener("DOMContentLoaded", () => {
     const track = document.getElementById("carousel-track");
-
-    let speed = 0.9; // ajuste a velocidade (px por frame)
+    const wrapper = document.querySelector(".carousel-wrapper");
+    let speed = 0.9;
     let position = 0;
 
-    // Cria clone imediatamente após o original
-    const clone = track.cloneNode(true);
-    clone.id = "carousel-track-clone";
-    track.parentElement.appendChild(clone);
+    // Aguarda todas as imagens carregarem para evitar desalinhamento
+    const imgs = track.querySelectorAll("img");
+    let loaded = 0;
 
-    function animate() {
-        position -= speed;
+    imgs.forEach(img => {
+        if (img.complete) {
+            loaded++;
+        } else {
+            img.onload = () => {
+                loaded++;
+                if (loaded === imgs.length) initCarousel();
+            };
+        }
+    });
 
-        const width = track.scrollWidth;
+    if (loaded === imgs.length) initCarousel();
 
-        // Quando o track sair da tela completamente:
-        if (Math.abs(position) >= width) {
-            position = 0;
+    function initCarousel() {
+        // Clona pista
+        const clone = track.cloneNode(true);
+        clone.id = "carousel-track-clone";
+        track.parentNode.appendChild(clone);
+
+        function animate() {
+            position -= speed;
+
+            // Quando o primeiro track sair totalmente da tela, reinicia
+            if (Math.abs(position) >= track.scrollWidth) {
+                position = 0;
+            }
+
+            track.style.transform = `translateX(${position}px)`;
+            clone.style.transform = `translateX(${position + track.scrollWidth}px)`;
+
+            requestAnimationFrame(animate);
         }
 
-        track.style.transform = `translateX(${position}px)`;
-        clone.style.transform = `translateX(${position + width}px)`;
-
-        requestAnimationFrame(animate);
+        animate();
     }
-
-    animate();
 });
 </script>
 
