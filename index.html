@@ -40,22 +40,24 @@
     
     <section class="hero">
         <div class="container">
-            <h2>Soluções eficientes e seguras para sua necessidade.</h2>
-            <p>Profissionalismo, transparência e tecnologia a serviço de processos organizados.</p>
+            <img src="assets/logo_ciaseg.png" loading="lazy" width="12,28" height="14,77" alt="CIASEG Inspeção de Sinistros">
             <br>
             <br>
             <a href="restrito.html" class="cta-button">Portal Sindicantes</a>
             <br>
             <br>
             <h3>Excelência em sindicâncias e suporte às seguradoras desde 1996.</h3>
-            <p></p>
+            <br>
             <p></p>Há quase três décadas, a CIASEG atua com seriedade, eficiência e precisão na apuração de sinistros em todo o território nacional.</p>
             <p></p>Nossa equipe altamente qualificada oferece assessoria completa aos departamentos de sinistros, garantindo segurança, agilidade e credibilidade em cada etapa do processo.</p>
-            <p></p>
+            <br>
+            <br>
+            <h2>Soluções eficientes e seguras para sua necessidade.</h2>
+            <p>Profissionalismo, transparência e tecnologia a serviço de processos organizados.</p>
         </div>
     </section>
 
-    <section id="sobre" class="section">
+    <section id="sobre" class="section reveal">
         <div class="container">
             <h2>Sobre a Empresa</h2>
             <p>Fundada em 1996, a CIASEG é referência em assessoria e suporte aos departamentos de sinistros de seguradoras, com o objetivo de fornecer elementos comprobatórios precisos para uma avaliação justa e conclusiva de indenizações pleiteadas.</p>
@@ -76,7 +78,7 @@
         </div>
     </section>
 
-    <section id="servicos" class="section alt">
+    <section id="servicos" class="section reveal">
         <div class="container">
             <h2>Valores</h2>
             <ul class="servicos-list">
@@ -115,7 +117,7 @@
         </div>
     </section>
 
-    <section id="contato" class="section">
+    <section id="contato" class="section reveal">
         <div class="container">
             <h2>Fale Conosco</h2>
             <p>Para dúvidas, suporte ou solicitações, envie-nos um e-mail:</p>
@@ -133,30 +135,83 @@
     const menu = document.querySelector(".nav-menu");
     const overlay = document.getElementById("menu-overlay");
     const header = document.querySelector("header");
+    const backToTop = document.getElementById("backToTop");
 
-    // Abrir/fechar menu
+    /* ---------------------- */
+    /* Menu hambúrguer        */
+    /* ---------------------- */
     hamb.addEventListener("click", () => {
         hamb.classList.toggle("active");
         menu.classList.toggle("active");
         overlay.classList.toggle("active");
     });
 
-    // Fechar menu ao clicar no overlay
     overlay.addEventListener("click", () => {
         hamb.classList.remove("active");
         menu.classList.remove("active");
         overlay.classList.remove("active");
     });
 
-    // Sombra no header ao rolar
+    /* ---------------------- */
+    /* Sombra no header       */
+    /* ---------------------- */
     window.addEventListener("scroll", () => {
-        if (window.scrollY > 20) {
-            header.classList.add("shadow");
+        header.classList.toggle("shadow", window.scrollY > 20);
+    });
+
+    /* ---------------------- */
+    /* Botão voltar ao topo   */
+    /* ---------------------- */
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 250) {
+            backToTop.classList.add("show");
         } else {
-            header.classList.remove("shadow");
+            backToTop.classList.remove("show");
         }
     });
+
+    backToTop.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+
+    /* ---------------------- */
+    /* Fade-In ao rolar       */
+    /* ---------------------- */
+    const reveals = document.querySelectorAll(".reveal");
+
+    const revealOnScroll = () => {
+        for (let el of reveals) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 120) {
+                el.classList.add("visible");
+            }
+        }
+    };
+
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll(); // inicia visível quando já está na tela
+
+    /* ---------------------- */
+    /* Animação do HERO       */
+    /* ---------------------- */
+    window.addEventListener("load", () => {
+        const hero = document.querySelector(".hero .container");
+        hero.style.opacity = "0";
+        hero.style.transform = "translateY(40px)";
+        hero.style.transition = "0.8s ease";
+
+        setTimeout(() => {
+            hero.style.opacity = "1";
+            hero.style.transform = "translateY(0)";
+        }, 200);
+    });
 </script>
+
+<!-- Botão Voltar ao Topo -->
+<div id="backToTop">↑</div>
 
 </body>
 </html>
