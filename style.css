@@ -1,4 +1,8 @@
 /* style.css - CIASEG Inspeção de Sinistros*/
+/* ---------------------- */
+/* Base                   */
+/* ---------------------- */
+
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -6,7 +10,10 @@ body {
     color: #222;
 }
 
-/* Header */
+/* ---------------------- */
+/* Header                 */
+/* ---------------------- */
+
 header {
     background: #111827;
     padding: 14px 0;
@@ -24,8 +31,30 @@ header .container {
     align-items: center;
 }
 
+/* Logo */
+.logo-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    height: 48px;
+}
+
+.logo-title {
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+/* Nav (desktop) */
+.nav-menu {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
 nav a {
-    margin-left: 20px;
     color: #fff;
     text-decoration: none;
     font-weight: 500;
@@ -37,7 +66,54 @@ nav a {
     border-radius: 6px;
 }
 
-/* Hero */
+
+/* ---------------------- */
+/* Hambúrguer Animado     */
+/* ---------------------- */
+
+.hamburger {
+    display: none;
+    width: 28px;
+    height: 22px;
+    cursor: pointer;
+    position: relative;
+    z-index: 100;
+}
+
+.hamburger span {
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: white;
+    left: 0;
+    transition: 0.3s ease;
+    border-radius: 3px;
+}
+
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 9px; }
+.hamburger span:nth-child(3) { top: 18px; }
+
+/* Estado ativo → vira X */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 9px;
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 9px;
+}
+
+
+/* ---------------------- */
+/* Hero                   */
+/* ---------------------- */
+
 .hero {
     background: linear-gradient(135deg, #1e3a8a, #2563eb);
     padding: 120px 0;
@@ -55,7 +131,10 @@ nav a {
     text-decoration: none;
 }
 
-/* Sections */
+/* ---------------------- */
+/* Sections               */
+/* ---------------------- */
+
 .section {
     padding: 70px 0;
 }
@@ -75,7 +154,10 @@ nav a {
     gap: 30px;
 }
 
-/* Fale Conosco */
+/* ---------------------- */
+/* Fale Conosco           */
+/* ---------------------- */
+
 .email-btn {
     display: inline-block;
     padding: 12px 18px;
@@ -85,7 +167,10 @@ nav a {
     border-radius: 6px;
 }
 
-/* Rodapé */
+/* ---------------------- */
+/* Rodapé                 */
+/* ---------------------- */
+
 footer {
     text-align: center;
     background: #111827;
@@ -93,7 +178,10 @@ footer {
     padding: 14px;
 }
 
-/* Área restrita */
+/* ---------------------- */
+/* Área Restrita          */
+/* ---------------------- */
+
 .restrito-page {
     display: flex;
     justify-content: center;
@@ -114,45 +202,13 @@ footer {
     text-decoration: none;
 }
 
-/* Logo */
-.logo-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+/* ---------------------- */
+/* RESPONSIVO             */
+/* ---------------------- */
 
-.logo-img {
-    height: 48px;
-}
-
-.logo-title {
-    font-size: 24px;
-    margin-left: 10px;
-}
-
-.logo-group {
-    display: flex;
-    align-items: center;
-}
-
-/* Nav padrão (desktop) */
-.nav-menu {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
-
-.hamburger {
-    display: none;
-    font-size: 28px;
-    cursor: pointer;
-    color: white;
-}
-
-/* MOBILE */
 @media (max-width: 768px) {
 
-    /* Nav some no mobile */
+    /* Nav vira dropdown */
     .nav-menu {
         position: absolute;
         top: 70px;
@@ -171,12 +227,12 @@ footer {
         display: block;
     }
 
-    /* Mostrar menu quando ativo */
+    /* Mostra mobile quando ativo */
     .nav-menu.active {
         display: flex;
     }
 
-    /* Hamburguer aparece no mobile */
+    /* Mostra o hambúrguer */
     .hamburger {
         display: block;
     }
