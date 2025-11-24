@@ -125,6 +125,16 @@ footer {
     height: 48px;
 }
 
+.logo-title {
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+.logo-group {
+    display: flex;
+    align-items: center;
+}
+
 /* Nav padrão (desktop) */
 .nav-menu {
     display: flex;
