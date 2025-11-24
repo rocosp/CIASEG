@@ -1,8 +1,4 @@
-/* style.css - CIASEG Inspeção de Sinistros */
-
-/* ---------------------- */
-/* Base                   */
-/* ---------------------- */
+/* Base */
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -10,9 +6,7 @@ body {
     color: #222;
 }
 
-/* ---------------------- */
-/* Header                 */
-/* ---------------------- */
+/* Header */
 header {
     background: #111827;
     padding: 14px 0;
@@ -46,7 +40,7 @@ header .container {
     margin-left: 10px;
 }
 
-/* Nav (desktop) */
+/* Nav */
 .nav-menu {
     display: flex;
     gap: 20px;
@@ -65,9 +59,7 @@ nav a {
     border-radius: 6px;
 }
 
-/* ---------------------- */
-/* Hambúrguer Animado     */
-/* ---------------------- */
+/* Hamburger */
 .hamburger {
     display: none;
     width: 28px;
@@ -83,32 +75,20 @@ nav a {
     width: 100%;
     background: white;
     left: 0;
-    transition: all 0.4s ease; /* transição suave */
     border-radius: 3px;
     opacity: 0.9;
+    transition: all 0.4s ease;
 }
 
 .hamburger span:nth-child(1) { top: 0; }
 .hamburger span:nth-child(2) { top: 9px; }
 .hamburger span:nth-child(3) { top: 18px; }
 
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg);
-    top: 9px;
-}
+.hamburger.active span:nth-child(1) { transform: rotate(45deg); top: 9px; }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg); top: 9px; }
 
-.hamburger.active span:nth-child(2) {
-    opacity: 0; /* transparente */
-}
-
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg);
-    top: 9px;
-}
-
-/* ---------------------- */
-/* Hero                   */
-/* ---------------------- */
+/* Hero */
 .hero {
     background: linear-gradient(135deg, #1e3a8a, #2563eb);
     padding: 120px 0;
@@ -126,169 +106,56 @@ nav a {
     text-decoration: none;
 }
 
-/* ---------------------- */
-/* Sections               */
-/* ---------------------- */
+/* Sections */
 .section {
     padding: 70px 0;
 }
 
-/* Reveal Sequencial */
-.reveal-item {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease-out;
-}
+/* Reveal */
+.reveal-item { opacity: 0; transform: translateY(30px); transition: all 0.6s ease-out; }
+.reveal-item.active { opacity: 1; transform: translateY(0); }
 
-.reveal-item.active {
-    opacity: 1;
-    transform: translateY(0);
-}
+.section.alt { background: #e5e7eb; }
 
-.section.alt {
-    background: #e5e7eb;
-}
+.section .container { width: 90%; margin: auto; }
 
-.section .container {
-    width: 90%;
-    margin: auto;
-}
+.servicos-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 30px; }
 
-.servicos-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 30px;
-}
+/* Clientes */
+.clientes-logos { display: flex; justify-content: center; align-items: center; gap: 30px; margin-top: 20px; }
+.clientes-logos img { max-width: 150px; height: auto; }
 
-/* ---------------------- */
-/* Imagem Sobre           */
-/* ---------------------- */
-.sobre-logo {
-    display: block;
-    margin: 0 auto 20px auto;
-    max-width: 200px;
-    height: auto;
-}
+/* Sobre logo */
+.sobre-logo { display: block; margin: 0 auto 20px auto; max-width: 200px; height: auto; }
 
-/* ---------------------- */
-/* Fale Conosco           */
-/* ---------------------- */
-.email-btn {
-    display: inline-block;
-    padding: 12px 18px;
-    background: #2563eb;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-}
+/* Fale Conosco */
+.email-btn { display: inline-block; padding: 12px 18px; background: #2563eb; color: white; text-decoration: none; border-radius: 6px; }
 
-/* ---------------------- */
-/* Rodapé                 */
-/* ---------------------- */
-footer {
-    text-align: center;
-    background: #111827;
-    color: white;
-    padding: 14px;
-}
+/* Footer */
+footer { text-align: center; background: #111827; color: white; padding: 14px; }
 
-/* ---------------------- */
-/* Área Restrita          */
-/* ---------------------- */
-.restrito-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
+/* Área Restrita */
+.restrito-page { display: flex; justify-content: center; align-items: center; height: 100vh; }
+.restrito-container { text-align: center; }
+.restrito-container .cta-button { display: inline-block; background: #2563eb; color: white; padding: 14px 20px; border-radius: 8px; text-decoration: none; }
+.restrito-logo { display: block; margin: 20px auto; max-width: 200px; width: 100%; height: auto; }
 
-.restrito-container {
-    text-align: center;
-}
+/* Fade buttons */
+.fade-button { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+.fade-button.active { opacity: 1; transform: translateY(0); }
 
-.restrito-container .cta-button {
-    display: inline-block;
-    background: #2563eb;
-    color: white;
-    padding: 14px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-}
-
-/* ------------------------------------ */
-/* Logo centralizada na página restrita */
-/* ------------------------------------ */
-.restrito-logo {
-    display: block;
-    margin: 20px auto; /* centraliza horizontalmente com espaço acima/baixo */
-    max-width: 200px;
-    width: 100%;      /* permite reduzir em telas menores */
-    height: auto;      /* mantém proporção */
-}
-
-/* Responsivo para telas pequenas */
-@media (max-width: 480px) {
-    .restrito-logo {
-        max-width: 150px; /* reduz o tamanho máximo em smartphones */
-        margin: 15px auto; /* menos espaço vertical */
-    }
-}
-
-/* ---------------------- */
-/* Botão voltar ao site    */
-/* ---------------------- */
-.back-btn {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 16px;
-    background: #6b7280; /* cinza suave */
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: 500;
-    transition: background 0.3s ease;
-}
-
-.back-btn:hover {
-    background: #4b5563; /* escurece ao passar o mouse */
-}
-
-/* Responsivo para telas pequenas */
-@media (max-width: 480px) {
-    .restrito-logo {
-        max-width: 150px; /* reduz tamanho em smartphones */
-        margin: 15px auto;
-    }
-}
-
-/* ---------------------- */
-/* RESPONSIVO             */
-/* ---------------------- */
+/* Responsivo */
 @media (max-width: 768px) {
-
     .nav-menu {
-        position: absolute;
-        top: 70px;
-        right: 0;
-        background: #111827;
-        width: 100%;
-        padding: 20px 0;
-        flex-direction: column;
-        display: none;
-        text-align: center;
+        position: absolute; top: 70px; right: 0; background: #111827;
+        width: 100%; padding: 20px 0; flex-direction: column; display: none; text-align: center;
     }
+    .nav-menu a { margin: 14px 0; font-size: 18px; display: block; }
+    .nav-menu.active { display: flex; }
+    .hamburger { display: block; }
+}
 
-    .nav-menu a {
-        margin: 14px 0;
-        font-size: 18px;
-        display: block;
-    }
-
-    .nav-menu.active {
-        display: flex;
-    }
-
-    .hamburger {
-        display: block;
-    }
+@media (max-width: 480px) {
+    .restrito-logo { max-width: 150px; margin: 15px auto; }
+    .clientes-logos img { max-width: 100px; }
 }
