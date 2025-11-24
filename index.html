@@ -8,23 +8,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<script>
-    const hamb = document.getElementById("hamburger");
-    const menu = document.querySelector(".nav-menu");
-
-    hamb.addEventListener("click", () => {
-        menu.classList.toggle("active");
-    });
-</script>
-    
 <body>
-    
 
-    <header>
+<header>
     <div class="container">
         
         <div class="logo-group">
-            <img src="assets/logo_cut.png" class="logo-img" alt="">
+            <img src="assets/logo_cut.png" class="logo-img" alt="Logo CIASEG">
             <h1 class="logo-title">CIASEG Inspeção de Sinistros</h1>
         </div>
 
@@ -35,9 +25,11 @@
             <a class="restrito-btn" href="restrito.html">Portal</a>
         </nav>
 
-        <!-- Botão Hamburguer (mobile) -->
+        <!-- Botão Hamburguer Animado -->
         <div class="hamburger" id="hamburger">
-            ☰
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
 
     </div>
@@ -133,5 +125,15 @@
     <footer>
         <p>© 2025 CIASEG Inspeção de Sinistros — Todos os direitos reservados.</p>
     </footer>
+<script>
+    const hamb = document.getElementById("hamburger");
+    const menu = document.querySelector(".nav-menu");
+
+    hamb.addEventListener("click", () => {
+        hamb.classList.toggle("active");
+        menu.classList.toggle("active");
+    });
+</script>
+
 </body>
 </html>
