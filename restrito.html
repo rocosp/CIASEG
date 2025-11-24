@@ -4,26 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acesso Restrito</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body class="restrito-page">
-    <div class="restrito-container">
-        <h1>Acesso Restrito</h1>
-        <p>Você será direcionado para o ambiente seguro.</p>
 
-        <!-- Logo centralizada e clicável -->
-        <a href="index.html">
-            <img src="assets/logo_cut.png" alt="Logo CIASEG" class="restrito-logo">
-        </a>
+<div class="restrito-container reveal-item">
+    <a href="index.html"><img src="assets/logo_cut.png" alt="Logo CIASEG" class="restrito-logo"></a>
+    <h1>Acesso Restrito</h1>
+    <p>Você será direcionado para o ambiente seguro.</p>
+    <a href="https://ciaseginspecao.sharepoint.com/sites/Sindicante/Documentos%20Compartilhados" class="cta-button fade-button">Entrar</a>
+    <br><br>
+    <a href="index.html" class="cta-button fade-button">Voltar ao Site</a>
+</div>
 
-        <!-- Botão de acesso -->
-        <a href="https://ciaseginspecao.sharepoint.com/sites/Sindicante/Documentos%20Compartilhados"
-           class="cta-button">Entrar</a>
+<script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll(".reveal-item");
+    const buttons = document.querySelectorAll(".fade-button");
 
-        <!-- Botão para voltar ao site -->
-        <a href="index.html" class="back-btn">Voltar ao site</a>
-    </div>
+    const revealOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        for(let el of reveals){
+            const top = el.getBoundingClientRect().top;
+            if(top < windowHeight - 100){
+                el.classList.add("active");
+            }
+        }
+        for(let btn of buttons){
+            const top = btn.getBoundingClientRect().top;
+            if(top < windowHeight - 50){
+                btn.classList.add("active");
+            }
+        }
+    };
+
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+</script>
+
 </body>
 </html>
