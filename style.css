@@ -170,14 +170,14 @@ nav a {
     display: flex;
     gap: 60px;
     align-items: center;
-    animation: slide 10s linear infinite;    
+    animation: slide 18s linear infinite;    
 }
 
 .carousel-track img {
     width: clamp(90px, 12vw, 140px);
     height: auto;
     opacity: 0.85;
-    filter: grayscale(40%);
+    filter: grayscale(50%);
     transition: 0.3s ease;
     flex-shrink: 0;
 }
