@@ -106,38 +106,40 @@
     </div>
 </section>
 
-<!-- CLIENTES (carrossel contínuo perfeito com controles e tooltip) -->
+<!-- CLIENTES (carrossel ping-pong com faixa estreita e seta central translúcida) -->
 <section id="clientes" class="section clientes-section">
     <div class="container">
         <h2>Nossos Clientes</h2>
 
-        <div class="carousel-wrapper" tabindex="0" aria-label="Carrossel de logos de clientes">
-            <!-- pista original -->
-            <div class="carousel-track" id="carousel-track">
-                <img src="assets/brasilseg_logo.jpg" alt="BRASILSEG COMPANHIA DE SEGUROS" data-caption="BRASILSEG">
-                <img src="assets/capemisa_seguradora_logo.jpg" alt="CAPEMISA SEGURADORA DE VIDA E PREVIDÊNCIA S/A" data-caption="Capemisa Seguradora">
-                <img src="assets/icatu_seguros_logo.jpg" alt="ICATU SEGUROS S.A" data-caption="Icatu Seguros">
-                <img src="assets/itauseguros_logo.jpg" alt="ITAÚ SEGUROS S.A" data-caption="Itaú Seguros">
-                <img src="assets/yelumseguradorabr_logo.jpg" alt="YELUM SEGURADORA" data-caption="Yelum Seguradora">
-                <img src="assets/mag_seguros_logo.jpg" alt="MONGERAL AEGON SEGUROS E PREVIDÊNCIA S.A" data-caption="Mongeral Aegon">
-                <img src="assets/mapfre_logo.jpg" alt="MAPFRE VIDA S.A" data-caption="Mapfre">
-                <img src="assets/metlife_logo.jpg" alt="METLIFE - METROPOLITAN LIFE SEGUROS E PREVIDÊNCIA PRIVADA S.A" data-caption="MetLife">
-                <img src="assets/omintseguros_logo.jpg" alt="OMINT SEGUROS S.A" data-caption="Omint Seguros">
-                <img src="assets/previsul_seguradora_logo.jpg" alt="PREVISUL - COMPANHIA DE SEGUROS PREVIDENCIA DO SUL" data-caption="Previsul">
-                <img src="assets/sulamerica_logo.jpg" alt="SUL AMERICA SEGUROS DE VIDA E PREV. S.A" data-caption="SulAmérica">
-                <img src="assets/porto_seguro_logo.jpg" alt="PORTO SEGURO COMPANHIA DE SEGUROS GERAIS" data-caption="Porto Seguro">
-                <img src="assets/prudentialdobrasil_logo.jpg" alt="PRUDENTIAL DO BRASIL SEGUROS DE VIDA S.A" data-caption="Prudential do Brasil">
-                <img src="assets/safra_logo.jpg" alt="SAFRA VIDA E PREVIDÊNCIA S/A" data-caption="Safra Vida">
-                <img src="assets/tokio_marine_seguradora_s_a_logo.jpg" alt="TOKIO MARINE SEGURADORA S.A" data-caption="Tokio Marine">
-                <img src="assets/unimedseguradora_logo.jpg" alt="UNIMED SEGURADORA S/A" data-caption="Unimed Seguradora">
-                <img src="assets/xpseguros_logo.jpg" alt="XP VIDA E PREVIDÊNCIA S.A" data-caption="XP Seguros">
-                <img src="assets/zurich_logo.jpg" alt="ZURICH SANTANDER BRASIL SEGUROS E PREVIDÊNCIA S/A" data-caption="Zurich">
+        <!-- wrapper estreito e harmonioso -->
+        <div class="carousel-wrapper narrow" tabindex="0" aria-label="Carrossel de logos de clientes">
+            <!-- pista única -->
+            <div class="carousel-track" id="carousel-track" role="list">
+                <img src="assets/brasilseg_logo.jpg" alt="BRASILSEG COMPANHIA DE SEGUROS" data-caption="BRASILSEG" role="listitem">
+                <img src="assets/capemisa_seguradora_logo.jpg" alt="CAPEMISA SEGURADORA DE VIDA E PREVIDÊNCIA S/A" data-caption="Capemisa Seguradora" role="listitem">
+                <img src="assets/icatu_seguros_logo.jpg" alt="ICATU SEGUROS S.A" data-caption="Icatu Seguros" role="listitem">
+                <img src="assets/itauseguros_logo.jpg" alt="ITAÚ SEGUROS S.A" data-caption="Itaú Seguros" role="listitem">
+                <img src="assets/yelumseguradorabr_logo.jpg" alt="YELUM SEGURADORA" data-caption="Yelum Seguradora" role="listitem">
+                <img src="assets/mag_seguros_logo.jpg" alt="MONGERAL AEGON SEGUROS E PREVIDÊNCIA S.A" data-caption="Mongeral Aegon" role="listitem">
+                <img src="assets/mapfre_logo.jpg" alt="MAPFRE VIDA S.A" data-caption="Mapfre" role="listitem">
+                <img src="assets/metlife_logo.jpg" alt="METLIFE - METROPOLITAN LIFE SEGUROS E PREVIDÊNCIA PRIVADA S.A" data-caption="MetLife" role="listitem">
+                <img src="assets/omintseguros_logo.jpg" alt="OMINT SEGUROS S.A" data-caption="Omint Seguros" role="listitem">
+                <img src="assets/previsul_seguradora_logo.jpg" alt="PREVISUL - COMPANHIA DE SEGUROS PREVIDENCIA DO SUL" data-caption="Previsul" role="listitem">
+                <img src="assets/sulamerica_logo.jpg" alt="SUL AMERICA SEGUROS DE VIDA E PREV. S.A" data-caption="SulAmérica" role="listitem">
+                <img src="assets/porto_seguro_logo.jpg" alt="PORTO SEGURO COMPANHIA DE SEGUROS GERAIS" data-caption="Porto Seguro" role="listitem">
+                <img src="assets/prudentialdobrasil_logo.jpg" alt="PRUDENTIAL DO BRASIL SEGUROS DE VIDA S.A" data-caption="Prudential do Brasil" role="listitem">
+                <img src="assets/safra_logo.jpg" alt="SAFRA VIDA E PREVIDÊNCIA S/A" data-caption="Safra Vida" role="listitem">
+                <img src="assets/tokio_marine_seguradora_s_a_logo.jpg" alt="TOKIO MARINE SEGURADORA S.A" data-caption="Tokio Marine" role="listitem">
+                <img src="assets/unimedseguradora_logo.jpg" alt="UNIMED SEGURADORA S/A" data-caption="Unimed Seguradora" role="listitem">
+                <img src="assets/xpseguros_logo.jpg" alt="XP VIDA E PREVIDÊNCIA S.A" data-caption="XP Seguros" role="listitem">
+                <img src="assets/zurich_logo.jpg" alt="ZURICH SANTANDER BRASIL SEGUROS E PREVIDÊNCIA S/A" data-caption="Zurich" role="listitem">
             </div>
 
-            <!-- controles manuais que aparecem só no hover/focus -->
-            <div class="carousel-controls" aria-hidden="false">
-                <button class="carousel-btn prev" aria-label="Mover para esquerda" title="Anterior">&lt;</button>
-                <button class="carousel-btn next" aria-label="Mover para direita" title="Próximo">&gt;</button>
+            <!-- central narrow control (aparece no hover/focus) -->
+            <div class="carousel-center-control" aria-hidden="false">
+                <button class="center-arrow prev" aria-label="Mover para esquerda" title="Anterior">&lt;</button>
+                <div class="center-line"></div>
+                <button class="center-arrow next" aria-label="Mover para direita" title="Próximo">&gt;</button>
             </div>
 
             <!-- tooltip / legenda estilizada -->
@@ -164,11 +166,12 @@
 // Menu hamburger
 const hamb = document.getElementById("hamburger");
 const menu = document.querySelector(".nav-menu");
-
-hamb.addEventListener("click", () => {
-    hamb.classList.toggle("active");
-    menu.classList.toggle("active");
-});
+if (hamb && menu) {
+    hamb.addEventListener("click", () => {
+        hamb.classList.toggle("active");
+        menu.classList.toggle("active");
+    });
+}
 
 // Reveal
 const reveals = document.querySelectorAll(".reveal-item");
@@ -185,7 +188,8 @@ window.addEventListener("scroll", () => {
 });
 
 /* ==============================================
-   CARROSSEL DINÂMICO — v2 com controles e tooltip
+   CARROSSEL PING-PONG — sem saltos, com tooltip,
+   clique pausa toggle, controles centrais estilizados
    ============================================== */
 
 function loadImagesFully(images, callback) {
@@ -193,17 +197,14 @@ function loadImagesFully(images, callback) {
     if (!images || images.length === 0) return callback();
 
     images.forEach(img => {
-        // If already loaded successfully
         if (img.complete && img.naturalWidth > 0) {
             loaded++;
             if (loaded === images.length) callback();
         } else {
-            // If browser lazy-loads, ensure we still catch onload
             img.addEventListener('load', () => {
                 loaded++;
                 if (loaded === images.length) callback();
             }, { once: true });
-            // Also safe-guard if image fails
             img.addEventListener('error', () => {
                 loaded++;
                 if (loaded === images.length) callback();
@@ -213,182 +214,153 @@ function loadImagesFully(images, callback) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const wrapper = document.querySelector('.carousel-wrapper');
+    const wrapper = document.querySelector('.carousel-wrapper.narrow');
     const track = document.getElementById('carousel-track');
-    const controls = document.querySelector('.carousel-controls');
-    const prevBtn = document.querySelector('.carousel-btn.prev');
-    const nextBtn = document.querySelector('.carousel-btn.next');
     const tooltip = document.getElementById('carousel-tooltip');
+    const prevBtn = document.querySelector('.center-arrow.prev');
+    const nextBtn = document.querySelector('.center-arrow.next');
+
+    if (!wrapper || !track) return;
 
     const images = Array.from(track.querySelectorAll('img'));
-    let speed = 1.0; // px per frame (conforme sua escolha)
+    images.forEach(img => img.setAttribute('tabindex', '0')); // accessibility
+
+    // settings
+    let speed = 1.0; // px per frame (configurável)
     let position = 0;
+    let direction = -1; // -1 = move left (content shifts left), +1 = move right
     let running = true;
     let rafId = null;
-    let idleTimeoutId = null;
-    const idleResumeMs = 3000; // volta a rodar após 3s de inatividade
+    const pauseAtEdgeMs = 1000; // 1s pause at each end
+    let pauseTimeout = null;
+    let userPaused = false; // toggled by image click
 
-    // Wait all images to load (handles lazy)
-    loadImagesFully(images, initCarousel);
+    // Wait until all images loaded to calculate sizes reliably
+    loadImagesFully(images, start);
 
-    function initCarousel() {
-        // clone pista
-        const clone = track.cloneNode(true);
-        clone.id = 'carousel-track-clone';
-        wrapper.appendChild(clone);
+    function start() {
+        // If track doesn't overflow wrapper, nothing to animate
+        const width = track.scrollWidth;
+        const wrapW = wrapper.clientWidth;
+        if (width <= wrapW) {
+            // still attach tooltip handlers and click toggle
+            attachImageControls();
+            return;
+        }
 
-        // Ensure cloned images also have same attributes for tooltip
-        const cloneImages = clone.querySelectorAll('img');
+        // set initial position so content starts from left (position = 0)
+        position = 0;
+        direction = -1; // start moving content left (logos move left)
+        running = true;
+        attachImageControls();
+        rafId = requestAnimationFrame(loop);
+    }
 
-        // Tooltip handlers: delegate to original track images
+    function loop() {
+        const width = track.scrollWidth;
+        const wrapW = wrapper.clientWidth;
+        const minPos = -(width - wrapW); // maximum negative translation
+        const maxPos = 0;
+
+        if (!userPaused) {
+            if (running) {
+                position += direction * speed; // direction negative = move left
+
+                // If reached or passed left end (minPos)
+                if (position <= minPos) {
+                    position = minPos;
+                    // pause then reverse
+                    running = false;
+                    clearTimeout(pauseTimeout);
+                    pauseTimeout = setTimeout(() => {
+                        direction = 1; // reverse (move right)
+                        running = true;
+                        rafId = requestAnimationFrame(loop);
+                    }, pauseAtEdgeMs);
+                }
+
+                // If reached or passed right end (maxPos)
+                else if (position >= maxPos) {
+                    position = maxPos;
+                    running = false;
+                    clearTimeout(pauseTimeout);
+                    pauseTimeout = setTimeout(() => {
+                        direction = -1; // reverse (move left)
+                        running = true;
+                        rafId = requestAnimationFrame(loop);
+                    }, pauseAtEdgeMs);
+                }
+            }
+        }
+
+        // apply transforms
+        track.style.transform = `translateX(${position}px)`;
+
+        // continue loop
+        rafId = requestAnimationFrame(loop);
+    }
+
+    function attachImageControls() {
+        // Tooltip: show on hover/focus, but do NOT pause the animation.
         images.forEach(img => {
-            img.style.cursor = 'pointer';
-
             img.addEventListener('mouseenter', (e) => {
                 showTooltip(e.currentTarget);
-                pauseAuto();
             });
             img.addEventListener('mouseleave', () => {
                 hideTooltip();
-                resumeAutoWithDelay();
             });
-
-            // Keyboard accessibility: focus/blur
-            img.setAttribute('tabindex', '0');
             img.addEventListener('focus', (e) => {
                 showTooltip(e.currentTarget);
-                pauseAuto();
             });
             img.addEventListener('blur', () => {
                 hideTooltip();
-                resumeAutoWithDelay();
+            });
+
+            // Clicking an image toggles pause/resume (user pause)
+            img.addEventListener('click', (e) => {
+                userPaused = !userPaused;
+                // if unpausing, ensure loop restarts
+                if (!userPaused && !rafId) {
+                    rafId = requestAnimationFrame(loop);
+                }
+                // visual feedback: toggle a class
+                img.classList.toggle('paused', userPaused);
             });
         });
 
-        // Controls: only show on hover/focus of wrapper (CSS handles visibility)
-        wrapper.addEventListener('mouseenter', () => {
-            controls.classList.add('visible');
-            pauseAuto();
-        });
-        wrapper.addEventListener('mouseleave', () => {
-            controls.classList.remove('visible');
-            resumeAutoWithDelay();
-        });
-
-        // Keyboard focus on wrapper: show controls
-        wrapper.addEventListener('focusin', () => {
-            controls.classList.add('visible');
-            pauseAuto();
-        });
-        wrapper.addEventListener('focusout', () => {
-            controls.classList.remove('visible');
-            resumeAutoWithDelay();
-        });
-
-        // Button actions
-        prevBtn.addEventListener('click', () => {
+        // center control buttons: manual step (do not pause auto)
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             manualStep('prev');
         });
-        nextBtn.addEventListener('click', () => {
+        nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             manualStep('next');
         });
 
-        // Keyboard shortcuts: left/right arrows when wrapper focused
-        wrapper.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') {
-                e.preventDefault();
-                manualStep('prev');
-            } else if (e.key === 'ArrowRight') {
-                e.preventDefault();
-                manualStep('next');
-            }
-        });
-
-        // Start animation loop
-        running = true;
-        animate();
-
-        // Resize handling: keep continuity when viewport changes
-        window.addEventListener('resize', () => {
-            // nothing special needed, loop uses scrollWidth each frame
-        });
-    }
-
-    function animate() {
-        const clone = document.getElementById('carousel-track-clone');
-        if (!clone) return;
-
-        if (running) {
-            position -= speed;
-            const width = track.scrollWidth;
-
-            if (Math.abs(position) >= width) {
-                // reset seamlessly
-                position = 0;
-            }
-
-            track.style.transform = `translateX(${position}px)`;
-            clone.style.transform = `translateX(${position + width}px)`;
-        }
-
-        rafId = requestAnimationFrame(animate);
-    }
-
-    function pauseAuto() {
-        running = false;
-        if (rafId) {
-            cancelAnimationFrame(rafId);
-            rafId = null;
-        }
-        // Keep transforms as-is so user can click
-    }
-
-    function resumeAuto() {
-        if (!running) {
-            running = true;
-            if (!rafId) animate();
-        }
-    }
-
-    function resumeAutoWithDelay() {
-        clearTimeout(idleTimeoutId);
-        idleTimeoutId = setTimeout(() => {
-            resumeAuto();
-        }, idleResumeMs);
+        // show controls on hover/focus: CSS handles visibility
     }
 
     function manualStep(dir) {
-        // pause and move by a step (1/3 of wrapper width)
-        pauseAuto();
-        clearTimeout(idleTimeoutId);
-
+        // move by a step (1/3 of wrapper)
         const step = Math.round(wrapper.clientWidth / 3);
         const width = track.scrollWidth;
+        const minPos = -(width - wrapper.clientWidth);
+        const maxPos = 0;
 
         if (dir === 'prev') {
             position += step;
-            // clamp negative wrap
-            if (position > 0) {
-                // move back so it continues seamless (jump to clone-backed position)
-                position = - (width - (position % width));
-            }
+            if (position > maxPos) position = maxPos;
         } else {
             position -= step;
-            if (Math.abs(position) >= width) {
-                position = position % width;
-            }
+            if (position < minPos) position = minPos;
         }
 
-        // apply immediately
-        const clone = document.getElementById('carousel-track-clone');
+        // apply immediate
         track.style.transform = `translateX(${position}px)`;
-        if (clone) clone.style.transform = `translateX(${position + width}px)`;
-
-        // resume after short delay of inactivity
-        resumeAutoWithDelay();
     }
 
-    /* Tooltip functions */
+    /* Tooltip functions (stylized) */
     function showTooltip(imgEl) {
         const caption = imgEl.getAttribute('data-caption') || imgEl.getAttribute('alt') || '';
         if (!caption) return;
@@ -396,27 +368,21 @@ document.addEventListener("DOMContentLoaded", () => {
         tooltip.setAttribute('aria-hidden', 'false');
         tooltip.style.opacity = '1';
 
-        // position tooltip above the image
+        // position tooltip above centered on image within wrapper
         const imgRect = imgEl.getBoundingClientRect();
         const wrapRect = wrapper.getBoundingClientRect();
 
-        // compute center of image relative to wrapper
         const left = (imgRect.left + imgRect.right) / 2 - wrapRect.left;
-        // put tooltip above with small margin
-        tooltip.style.transform = `translateX(${left - tooltip.offsetWidth / 2}px) translateY(-10px)`;
-        // correct if overflow
-        const ttRect = tooltip.getBoundingClientRect();
-        if (ttRect.left < wrapRect.left + 8) {
-            tooltip.style.transform = `translateX(${8 - wrapRect.left}px) translateY(-10px)`;
-        } else if (ttRect.right > wrapRect.right - 8) {
-            tooltip.style.transform = `translateX(${wrapRect.width - tooltip.offsetWidth - 8}px) translateY(-10px)`;
-        }
+        // center tooltip horizontally on that point
+        tooltip.style.left = `${left}px`;
+        tooltip.style.transform = `translateX(-50%) translateY(-12px)`;
     }
 
     function hideTooltip() {
         tooltip.style.opacity = '0';
         tooltip.setAttribute('aria-hidden', 'true');
     }
+
 });
 </script>
 
