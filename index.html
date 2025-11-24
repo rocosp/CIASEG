@@ -38,11 +38,9 @@
         <br>
         <p>Há quase três décadas, a CIASEG atua com seriedade, eficiência e precisão na apuração de sinistros em todo o território nacional.</p>
         <p>Nossa equipe altamente qualificada oferece assessoria completa aos departamentos de sinistros, garantindo segurança, agilidade e credibilidade em cada etapa do processo.</p>
-        <br>
-        <br>
+        <br><br>
         <a href="restrito.html" class="cta-button">Portal Sindicantes</a>
-        <br>
-        <br>
+        <br><br>
         <h2>Soluções eficientes e seguras para sua necessidade.</h2>
         <p>Profissionalismo, transparência e tecnologia a serviço de processos organizados.</p>
         <br>
@@ -108,7 +106,7 @@
     </div>
 </section>
 
-<!-- NOVA SECTION CLIENTES -->
+<!-- CLIENTES (carrossel contínuo perfeito) -->
 <section id="clientes" class="section clientes-section">
     <div class="container">
         <h2>Nossos Clientes</h2>
@@ -176,10 +174,38 @@ window.addEventListener("scroll", () => {
     }
 });
 
-// Carrossel duplicação automática
-const track = document.getElementById("carousel-track");
-const logos = [...track.children];
-logos.forEach(logo => track.appendChild(logo.cloneNode(true)));
+/* ============================
+   CARROSSEL DINÂMICO PERFEITO
+   ============================ */
+document.addEventListener("DOMContentLoaded", () => {
+    const track = document.getElementById("carousel-track");
+
+    let speed = 0.6; // ajuste a velocidade (px por frame)
+    let position = 0;
+
+    // Cria clone imediatamente após o original
+    const clone = track.cloneNode(true);
+    clone.id = "carousel-track-clone";
+    track.parentElement.appendChild(clone);
+
+    function animate() {
+        position -= speed;
+
+        const width = track.scrollWidth;
+
+        // Quando o track sair da tela completamente:
+        if (Math.abs(position) >= width) {
+            position = 0;
+        }
+
+        track.style.transform = `translateX(${position}px)`;
+        clone.style.transform = `translateX(${position + width}px)`;
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+});
 </script>
 
 </body>
