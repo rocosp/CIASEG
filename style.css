@@ -170,7 +170,7 @@ nav a {
     display: flex;
     gap: 60px;
     align-items: center;
-    animation: slide 10s linear infinite;    
+    will-change: transform;
 }
 
 .carousel-track img {
@@ -186,12 +186,6 @@ nav a {
     opacity: 1;
     filter: grayscale(0%);
     transform: scale(1.08);
-}
-
-/* Animação do carrossel */
-@keyframes slide {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-60%); }
 }
 
 /* ---------------------- */
@@ -243,8 +237,9 @@ footer {
 }
 
 /* ---------------------- */
-/* Área Restrita          */
+/* Área Restrita */
 /* ---------------------- */
+
 .restrito-page {
     display: flex;
     justify-content: center;
@@ -271,13 +266,6 @@ footer {
     max-width: 200px;
     width: 100%;
     height: auto;
-}
-
-@media (max-width: 480px) {
-    .restrito-logo {
-        max-width: 150px;
-        margin: 15px auto;
-    }
 }
 
 .back-btn {
