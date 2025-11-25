@@ -94,6 +94,38 @@ nav a {
     transform:rotate(-45deg); top:9px;
 }
 
+/* MOBILE MENU FIX */
+
+@media (max-width: 768px) {
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 68px;
+        right: 0;
+        width: 100%;
+        background: #111827;
+        padding: 20px 0;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        z-index: 999;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+        z-index: 1000;
+    }
+
+    header .container {
+        position: relative;
+    }
+}
+
 /* HERO */
 .hero {
     background: linear-gradient(135deg, #1e3a8a, #2563eb);
