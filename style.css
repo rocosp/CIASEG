@@ -18,7 +18,7 @@ header {
     color: white;
     position: sticky;
     top: 0;
-    z-index: 1200; /* raised so header always overlays carousel controls if overlap occurs */
+    z-index: 1200;
 }
 
 header .container {
@@ -65,35 +65,44 @@ nav a {
 /* HAMBURGER */
 .hamburger {
     display: none;
-    width: 28px;
-    height: 22px;
+    width: 36px;
+    height: 36px;
     cursor: pointer;
     position: relative;
+    background: transparent;
+    border: none;
+    padding: 6px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: background 160ms ease;
     z-index: 1250;
 }
 
+.hamburger:hover { background: rgba(255,255,255,0.04); }
+
 .hamburger span {
     position: absolute;
-    width: 100%;
-    height: 3px;
+    left: 8px;
+    right: 8px;
+    height: 2px;
     background: white;
-    left: 0;
-    transition: 0.4s;
-    border-radius: 3px;
+    border-radius: 2px;
+    transition: transform 220ms ease, opacity 220ms ease;
 }
 
-.hamburger span:nth-child(1){top:0}
-.hamburger span:nth-child(2){top:9px}
-.hamburger span:nth-child(3){top:18px}
+.hamburger span:nth-child(1){ top: 10px; }
+.hamburger span:nth-child(2){ top: 17px; }
+.hamburger span:nth-child(3){ top: 24px; }
 
 .hamburger.active span:nth-child(1){
-    transform:rotate(45deg); top:9px;
+    transform: translateY(7px) rotate(45deg);
 }
 .hamburger.active span:nth-child(2){
     opacity:0;
 }
 .hamburger.active span:nth-child(3){
-    transform:rotate(-45deg); top:9px;
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 /* MOBILE MENU FIX */
@@ -118,7 +127,7 @@ nav a {
     }
 
     .hamburger {
-        display: block;
+        display: flex;
         z-index: 1250;
     }
 
@@ -184,7 +193,7 @@ nav a {
 }
 
 /* ---------------------- */
-/* CLIENTES — CARROSSEL (NARROW) */
+/* CLIENTES — CARROSSEL (MARQUEE WAAPI) */
 /* ---------------------- */
 
 .clientes-section {
@@ -192,6 +201,7 @@ nav a {
     text-align: center;
 }
 
+/* wrapper */
 .carousel-wrapper {
     width: 100%;
     overflow: hidden;
@@ -200,30 +210,37 @@ nav a {
     outline: none;
 }
 
-/* NARROW variant: reduce height and center logos vertically for a sleek stripe */
+/* narrow stripe look */
 .carousel-wrapper.narrow {
-    padding: 24px 0;
-    display: block;
+    padding: 18px 0;
 }
 
-/* track */
+/* inner wrap that will be animated (contains track + clone) */
+.carousel-track-wrap {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    will-change: transform;
+}
+
+/* track (one copy) */
 .carousel-track {
     display: flex;
-    gap: 36px;
+    gap: 28px;
     align-items: center;
-    will-change: transform;
-    transition: transform 120ms linear;
+    flex-shrink: 0;
 }
 
 /* images */
 .carousel-track img {
-    width: clamp(84px, 10vw, 120px);
+    width: clamp(72px, 10vw, 120px);
     height: auto;
-    opacity: 0.92;
-    filter: grayscale(0%);
-    transition: transform 0.28s ease, filter 0.28s ease, opacity 0.28s ease;
+    opacity: 0.95;
+    filter: grayscale(80%);
+    transition: transform 220ms ease, filter 220ms ease, opacity 220ms ease;
     flex-shrink: 0;
     display:block;
+    cursor: pointer;
 }
 
 /* hover effect (visual only) */
@@ -234,91 +251,16 @@ nav a {
 
 /* paused visual indicator when user paused by click */
 .carousel-track img.paused {
-    outline: 3px solid rgba(37,99,235,0.12);
+    outline: 2px solid rgba(37,99,235,0.14);
     border-radius: 6px;
 }
 
-/* ---------------------- */
-/* CENTRALIZED narrow control (PÍLULA PREMIUM) */
-/* ---------------------- */
-
-/* container pílula */
-.carousel-center-control {
-    position: absolute;
-    right: 12px; /* stick to right with small margin */
-    top: 50%;
-    transform: translateY(-50%);
-    width: 56px; /* pill width */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px;
-    border-radius: 999px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-    border: 1px solid rgba(255,255,255,0.06);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 10px 30px rgba(7,12,25,0.18);
-    opacity: 0;
-    transition: opacity 200ms ease, transform 200ms ease;
-    pointer-events: none; /* inactive until shown */
-    z-index: 50;
-}
-
-/* show control on hover/focus */
-.carousel-wrapper.narrow:hover .carousel-center-control,
-.carousel-wrapper.narrow:focus-within .carousel-center-control {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(-50%) scale(1.00);
-}
-
-/* center arrow buttons (transparent to let pill show through) */
-.center-arrow {
-    background: transparent;
-    color: white;
-    border: none;
-    width: 38px;
-    height: 38px;
-    border-radius: 999px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    cursor: pointer;
-    transition: transform 140ms ease, background 140ms ease, color 140ms ease;
-    outline: none;
-    box-shadow: 0 6px 18px rgba(2,6,23,0.14);
-}
-
-/* modern hover: subtle lift + glass highlight */
-.center-arrow:hover,
-.center-arrow:focus {
-    transform: translateY(-2px) scale(1.03);
-    color: #fff;
-}
-
-/* SVG icons use currentColor; make them a little brighter */
-.center-arrow svg { color: #ffffff; opacity: 0.98; }
-
-/* small dividing line inside pill (purely decorative) */
-.carousel-center-control .center-line {
-    width: 1px;
-    height: 8px;
-    background: rgba(255,255,255,0.08);
-    border-radius: 2px;
-}
-
-/* ---------------------- */
-/* Tooltip styling (estilizado) */
-/* ---------------------- */
+/* tooltip */
 #carousel-tooltip {
     position: absolute;
     bottom: 100%;
-    left: 0;
-    transform: translateY(-12px) translateX(-50%);
+    left: 50%;
+    transform: translateX(-50%) translateY(-12px);
     background: rgba(22, 24, 28, 0.96);
     color: #fff;
     padding: 8px 12px;
@@ -333,7 +275,7 @@ nav a {
     z-index: 40;
 }
 
-/* caret */
+/* small caret */
 #carousel-tooltip::after {
     content: "";
     position: absolute;
@@ -371,20 +313,17 @@ footer {
 
 /* RESPONSIVIDADE tweaks */
 @media (max-width: 1024px) {
-    .carousel-track img { width: clamp(70px, 12vw, 100px); }
-    .carousel-center-control { right: 8px; width: 52px; padding: 8px; }
+    .carousel-track img { width: clamp(62px, 10vw, 96px); gap: 24px; }
 }
 
 @media (max-width: 768px) {
-    .carousel-track { gap: 24px; }
-    .carousel-track img { width: clamp(60px, 18vw, 86px); }
-    .carousel-center-control { right: 6px; width: 48px; padding: 6px; }
+    .carousel-track { gap: 20px; }
+    .carousel-track img { width: clamp(56px, 16vw, 86px); }
 }
 
 @media (max-width: 480px) {
-    .carousel-center-control { display: none; } /* mobile: avoid overlay; user can swipe */
-    .carousel-track { gap: 18px; }
-    .carousel-track img { width: clamp(56px, 22vw, 76px); }
+    .carousel-track { gap: 16px; }
+    .carousel-track img { width: clamp(48px, 22vw, 72px); }
 }
 
 /* ---------------------- */
