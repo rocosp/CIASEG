@@ -25,7 +25,7 @@
             <a class="restrito-btn" href="restrito.html">Portal</a>
         </nav>
 
-        <div class="hamburger" id="hamburger">
+        <div class="hamburger" id="hamburger" aria-label="Abrir menu">
             <span></span><span></span><span></span>
         </div>
     </div>
@@ -106,7 +106,7 @@
     </div>
 </section>
 
-<!-- CLIENTES (carrossel ping-pong com faixa estreita e seta central translúcida) -->
+<!-- CLIENTES (carrossel ping-pong com faixa estreita e seta central translúcida em estilo "pílula" premium) -->
 <section id="clientes" class="section clientes-section">
     <div class="container">
         <h2>Nossos Clientes</h2>
@@ -135,11 +135,20 @@
                 <img src="assets/zurich_logo.jpg" alt="ZURICH SANTANDER BRASIL SEGUROS E PREVIDÊNCIA S/A" data-caption="Zurich" role="listitem">
             </div>
 
-            <!-- central narrow control (aparece no hover/focus) -->
-            <div class="carousel-center-control" aria-hidden="false">
-                <button class="center-arrow prev" aria-label="Mover para esquerda" title="Anterior">&lt;</button>
-                <div class="center-line"></div>
-                <button class="center-arrow next" aria-label="Mover para direita" title="Próximo">&gt;</button>
+            <!-- central narrow control (pílula premium com ícones SVG) -->
+            <div class="carousel-center-control" aria-hidden="false" aria-label="Controles do carrossel">
+                <button class="center-arrow prev" aria-label="Mover para esquerda" title="Anterior">
+                    <!-- chevron up visually becomes left when rotated -->
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="center-line" aria-hidden="true"></div>
+                <button class="center-arrow next" aria-label="Mover para direita" title="Próximo">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
             </div>
 
             <!-- tooltip / legenda estilizada -->
@@ -190,6 +199,7 @@ window.addEventListener("scroll", () => {
 /* ==============================================
    CARROSSEL PING-PONG — sem saltos, com tooltip,
    clique pausa toggle, controles centrais estilizados
+   (Opção D: pílula premium com SVG chevrons)
    ============================================== */
 
 function loadImagesFully(images, callback) {
@@ -338,7 +348,11 @@ document.addEventListener("DOMContentLoaded", () => {
             manualStep('next');
         });
 
-        // show controls on hover/focus: CSS handles visibility
+        // keyboard controls: left/right when focused
+        wrapper.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') manualStep('prev');
+            if (e.key === 'ArrowRight') manualStep('next');
+        });
     }
 
     function manualStep(dir) {
