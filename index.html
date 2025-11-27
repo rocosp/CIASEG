@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CIASEG Inspeção de Sinistros</title>
+
+    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
     <div class="container">
         <div class="logo-group">
@@ -17,7 +27,7 @@
             <h1 class="logo-title">CIASEG Inspeção de Sinistros</h1>
         </div>
 
-        <nav class="nav-menu">
+        <nav class="nav-menu" id="nav-menu">
             <a href="#sobre">Sobre</a>
             <a href="#servicos">Valores</a>
             <a href="#clientes">Clientes</a>
@@ -31,137 +41,143 @@
     </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-    <div class="container">
-        <br>
+    <div class="content">
         <h3>Excelência em sindicâncias e suporte às seguradoras desde 1996.</h3>
-        <br>
         <p>Há quase três décadas, a CIASEG atua com seriedade, eficiência e precisão na apuração de sinistros em todo o território nacional.</p>
         <p>Nossa equipe altamente qualificada oferece assessoria completa aos departamentos de sinistros, garantindo segurança, agilidade e credibilidade em cada etapa do processo.</p>
-        <br><br>
         <a href="restrito.html" class="cta-button">Portal Sindicantes</a>
-        <br><br>
+
         <h2>Soluções eficientes e seguras para sua necessidade.</h2>
         <p>Profissionalismo, transparência e tecnologia a serviço de processos organizados.</p>
-        <br>
     </div>
 </section>
 
+<!-- SOBRE -->
 <section id="sobre" class="section reveal">
-    <div class="container">
-        <img src="assets/logo.png" alt="Logo CIASEG" class="sobre-logo reveal-item">
+    <div class="container grid-2">
+        <img src="assets/sobre.jpg" class="sobre-img reveal-item" alt="Imagem institucional CIASEG">
 
-        <h2 class="reveal-item">Sobre a Empresa</h2>
-        <p class="reveal-item">Fundada em 1996, a CIASEG é referência em assessoria e suporte aos departamentos de sinistros de seguradoras, com o objetivo de fornecer elementos comprobatórios precisos para uma avaliação justa e conclusiva de indenizações pleiteadas.</p>
-        <p class="reveal-item">Dirigida por profissionais altamente qualificados e com ampla experiência no mercado segurador, a CIASEG atua em todo o território nacional, realizando sindicâncias com qualidade, ética e eficiência. Nosso trabalho é voltado para proteger as seguradoras de possíveis prejuízos morais e financeiros, sempre com total transparência e profissionalismo.</p>
-        <p class="reveal-item">Garantimos prazo para a conclusão das sindicâncias, monitoramento contínuo do andamento de cada processo, atualização sobre a evolução das etapas do agendamento das entrevistas e/ou obtenção dos termos de autorização necessários para as pesquisas médicas e de campo.</p>
-        <p class="reveal-item">Disponibilizamos relatório preliminar, assegurando agilidade, clareza e confiança em todas as etapas do serviço.</p>
-        <br>
-        <h2 class="reveal-item">Missão</h2>
-        <p class="reveal-item">Garantir às seguradoras total segurança e precisão no processo de análise de sinistros por meio de sindicâncias criteriosas, conduzidas com rigor técnico, elevado padrão profissional, atuando na obtenção de documentos e evidências que sustentam decisões justas e conclusivas, preservando nossos clientes de riscos, prejuízos e incertezas.</p>
-        <br>
-        <h2 class="reveal-item">Visão</h2>
-        <p class="reveal-item">Ser reconhecida nacionalmente como a principal referência em sindicâncias e assessoria técnica para departamentos de sinistros, destacando-nos pela confiabilidade dos nossos processos, pela solidez das informações apresentadas e pela capacidade de contribuir diretamente para a eficiência, integridade e segurança das operações das seguradoras.</p>
+        <div class="reveal-item">
+            <img src="assets/logo.png" class="sobre-logo">
+
+            <h2>Sobre a Empresa</h2>
+            <p>Fundada em 1996, a CIASEG é referência em assessoria e suporte aos departamentos de sinistros de seguradoras, com o objetivo de fornecer elementos comprobatórios precisos para uma avaliação justa e conclusiva de indenizações pleiteadas.</p>
+
+            <p>Dirigida por profissionais altamente qualificados e com ampla experiência no mercado segurador, a CIASEG atua em todo o território nacional, realizando sindicâncias com qualidade, ética e eficiência. Nosso trabalho é voltado para proteger as seguradoras de possíveis prejuízos morais e financeiros, sempre com total transparência e profissionalismo.</p>
+
+            <p>Garantimos prazo para a conclusão das sindicâncias, monitoramento contínuo do andamento de cada processo, atualização sobre a evolução das etapas do agendamento das entrevistas e/ou obtenção dos termos de autorização necessários para as pesquisas médicas e de campo.</p>
+
+            <p>Disponibilizamos relatório preliminar, assegurando agilidade, clareza e confiança em todas as etapas do serviço.</p>
+
+            <h2>Missão</h2>
+            <p>Garantir às seguradoras total segurança e precisão no processo de análise de sinistros por meio de sindicâncias criteriosas, conduzidas com rigor técnico e elevado padrão profissional.</p>
+
+            <h2>Visão</h2>
+            <p>Ser reconhecida nacionalmente como a principal referência em sindicâncias e assessoria técnica para departamentos de sinistros.</p>
+        </div>
     </div>
 </section>
 
+<!-- VALORES -->
 <section id="servicos" class="section alt">
     <div class="container">
         <h2>Valores</h2>
 
-        <ul class="servicos-list">
-            <li>
-                <h3>Ética e Integridade</h3>
-                <p>Conduzimos todas as nossas atividades com honestidade, responsabilidade e respeito, assegurando relações transparentes e de confiança mútua.</p>
-            </li>
+        <div class="valores-grid">
 
-            <li>
-                <h3>Excelência Técnica</h3>
-                <p>Contamos com profissionais altamente qualificados e experientes no mercado segurador, comprometidos com a precisão e o rigor necessários para análises confiáveis.</p>
-            </li>
+            <div class="card reveal-item">
+                <h3><span class="icon">🛡</span> Ética e Integridade</h3>
+                <p>Conduzimos nossas atividades com honestidade, responsabilidade e respeito.</p>
+            </div>
 
-            <li>
-                <h3>Rigor Investigativo</h3>
-                <p>Desenvolvemos sindicâncias completas e aprofundadas, obtendo documentos e evidências que sustentam decisões fundamentadas.</p>
-            </li>
-        </ul>
-        
-        <ul class="servicos-list">
-            <li>
-                <h3>Eficiência Operacional</h3>
-                <p>Atuamos em todo o território nacional com agilidade, organização e precisão, oferecendo resultados consistentes dentro dos prazos estabelecidos.</p>
-            </li> 
-            
-            <li>
-                <h3>Compromisso com o Cliente</h3>
-                <p>Nosso trabalho é pautado na proteção dos interesses das seguradoras, agregando valor, segurança e tranquilidade aos seus processos de indenização.</p>
-            </li>
-            
-            <li>
-                <h3>Transparência e Confiabilidade</h3>
-                <p>Zelamos pela clareza e objetividade em cada etapa dos nossos serviços, reforçando a credibilidade e a segurança que entregamos há décadas ao mercado.</p>
-            </li>
-        </ul>
+            <div class="card reveal-item">
+                <h3><span class="icon">🏅</span> Excelência Técnica</h3>
+                <p>Equipe qualificada e experiente, garantindo análises confiáveis.</p>
+            </div>
 
+            <div class="card reveal-item">
+                <h3><span class="icon">🔎</span> Rigor Investigativo</h3>
+                <p>Sindicâncias completas, com coleta de documentos e evidências.</p>
+            </div>
+
+            <div class="card reveal-item">
+                <h3><span class="icon">⚙️</span> Eficiência Operacional</h3>
+                <p>Atuação ágil, organizada e precisa em todo o território nacional.</p>
+            </div>
+
+            <div class="card reveal-item">
+                <h3><span class="icon">🤝</span> Compromisso com o Cliente</h3>
+                <p>Proteção dos interesses das seguradoras com foco e responsabilidade.</p>
+            </div>
+
+            <div class="card reveal-item">
+                <h3><span class="icon">📑</span> Transparência e Confiabilidade</h3>
+                <p>Clareza e objetividade em cada etapa do processo.</p>
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- CLIENTES (marquee contínuo via WAAPI, tooltip e pause-on-click, sem setas) -->
+<!-- CLIENTES -->
 <section id="clientes" class="section clientes-section">
     <div class="container">
         <h2>Nossos Clientes</h2>
 
-        <!-- wrapper estreito e harmonioso -->
+        <!-- SEU MARQUEE WAAPI COMPLETO -->
         <div class="carousel-wrapper narrow" id="carousel-wrapper" tabindex="0" aria-label="Carrossel de logos de clientes">
-            <!-- track container (vai conter track + clone) -->
             <div class="carousel-track-wrap" id="carousel-track-wrap" aria-hidden="false">
                 <div class="carousel-track" id="carousel-track" role="list">
-                    <img src="assets/brasilseg_logo.jpg" alt="BRASILSEG COMPANHIA DE SEGUROS" data-caption="BRASILSEG" role="listitem">
-                    <img src="assets/capemisa_seguradora_logo.jpg" alt="CAPEMISA SEGURADORA DE VIDA E PREVIDÊNCIA S/A" data-caption="Capemisa Seguradora" role="listitem">
-                    <img src="assets/icatu_seguros_logo.jpg" alt="ICATU SEGUROS S.A" data-caption="Icatu Seguros" role="listitem">
-                    <img src="assets/itauseguros_logo.jpg" alt="ITAÚ SEGUROS S.A" data-caption="Itaú Seguros" role="listitem">
-                    <img src="assets/mag_seguros_logo.jpg" alt="MONGERAL AEGON SEGUROS E PREVIDÊNCIA S.A" data-caption="Mongeral Aegon" role="listitem">
-                    <img src="assets/mapfre_logo.jpg" alt="MAPFRE VIDA S.A" data-caption="Mapfre" role="listitem">
-                    <img src="assets/metlife_logo.jpg" alt="METLIFE - METROPOLITAN LIFE SEGUROS E PREVIDÊNCIA PRIVADA S.A" data-caption="MetLife" role="listitem">
-                    <img src="assets/omintseguros_logo.jpg" alt="OMINT SEGUROS S.A" data-caption="Omint Seguros" role="listitem">
-                    <img src="assets/porto_seguro_logo.jpg" alt="PORTO SEGURO COMPANHIA DE SEGUROS GERAIS" data-caption="Porto Seguro" role="listitem">
-                    <img src="assets/previsul_seguradora_logo.jpg" alt="PREVISUL - COMPANHIA DE SEGUROS PREVIDENCIA DO SUL" data-caption="Previsul" role="listitem">
-                    <img src="assets/prudentialdobrasil_logo.jpg" alt="PRUDENTIAL DO BRASIL SEGUROS DE VIDA S.A" data-caption="Prudential do Brasil" role="listitem">
-                    <img src="assets/safra_logo.jpg" alt="SAFRA VIDA E PREVIDÊNCIA S/A" data-caption="Safra Vida" role="listitem">
-                    <img src="assets/unimedseguradora_logo.jpg" alt="UNIMED SEGURADORA S/A" data-caption="Unimed Seguradora" role="listitem">
-                    <img src="assets/sulamerica_logo.jpg" alt="SUL AMERICA SEGUROS DE VIDA E PREV. S.A" data-caption="SulAmérica" role="listitem">
-                    <img src="assets/tokio_marine_seguradora_s_a_logo.jpg" alt="TOKIO MARINE SEGURADORA S.A" data-caption="Tokio Marine" role="listitem">
-                    <img src="assets/xpseguros_logo.jpg" alt="XP VIDA E PREVIDÊNCIA S.A" data-caption="XP Seguros" role="listitem">
-                    <img src="assets/yelumseguradorabr_logo.jpg" alt="YELUM SEGURADORA" data-caption="Yelum Seguradora" role="listitem">
-                    <img src="assets/zurich_logo.jpg" alt="ZURICH SANTANDER BRASIL SEGUROS E PREVIDÊNCIA S/A" data-caption="Zurich" role="listitem">
+
+                    <!-- Todos os seus logos mantidos -->
+                    <img src="assets/brasilseg_logo.jpg" data-caption="Brasilseg">
+                    <img src="assets/capemisa_seguradora_logo.jpg" data-caption="Capemisa">
+                    <img src="assets/icatu_seguros_logo.jpg" data-caption="Icatu">
+                    <img src="assets/itauseguros_logo.jpg" data-caption="Itaú">
+                    <img src="assets/mag_seguros_logo.jpg" data-caption="MAG Seguros">
+                    <img src="assets/mapfre_logo.jpg" data-caption="Mapfre">
+                    <img src="assets/metlife_logo.jpg" data-caption="MetLife">
+                    <img src="assets/omintseguros_logo.jpg" data-caption="Omint">
+                    <img src="assets/porto_seguro_logo.jpg" data-caption="Porto Seguro">
+                    <img src="assets/previsul_seguradora_logo.jpg" data-caption="Previsul">
+                    <img src="assets/prudentialdobrasil_logo.jpg" data-caption="Prudential">
+                    <img src="assets/safra_logo.jpg" data-caption="Safra">
+                    <img src="assets/unimedseguradora_logo.jpg" data-caption="Unimed">
+                    <img src="assets/sulamerica_logo.jpg" data-caption="SulAmérica">
+                    <img src="assets/tokio_marine_seguradora_s_a_logo.jpg" data-caption="Tokio Marine">
+                    <img src="assets/xpseguros_logo.jpg" data-caption="XP Seguros">
+                    <img src="assets/yelumseguradorabr_logo.jpg" data-caption="Yelum">
+                    <img src="assets/zurich_logo.jpg" data-caption="Zurich">
                 </div>
-                <!-- clone será inserido automaticamente via JS -->
             </div>
 
-            <!-- tooltip / legenda estilizada -->
             <div id="carousel-tooltip" role="tooltip" aria-hidden="true"></div>
         </div>
     </div>
 </section>
 
-<section id="contato" class="section alt">
+<!-- CONTATO -->
+<section id="contato" class="section contato">
     <div class="container">
         <h2>Fale Conosco</h2>
-        <p>Para dúvidas, suporte ou solicitações, envie-nos um e-mail:</p>
+        <p>Envie um e-mail diretamente para nossa equipe:</p>
+
         <a href="mailto:contato@ciasegsinistros.com.br?Subject=Contato Site CIASEG Inspeção de Sinistros" class="email-btn">
             contato@ciasegsinistros.com.br
         </a>
     </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
     <p>© 2025 CIASEG Inspeção de Sinistros — Todos os direitos reservados.</p>
 </footer>
 
 <script>
-/* -------------------------
-   Menu hamburger (corrigido)
-   ------------------------- */
+/* ----------------
+   Menu hamburger
+   ---------------- */
 const hamb = document.getElementById("hamburger");
 const menu = document.querySelector(".nav-menu");
 if (hamb && menu) {
@@ -173,9 +189,9 @@ if (hamb && menu) {
     });
 }
 
-/* -------------------------
-   Reveal items (mantive)
-   ------------------------- */
+/* --------------
+   Reveal items
+   -------------- */
 const reveals = document.querySelectorAll(".reveal-item");
 window.addEventListener("scroll", () => {
     for (let i = 0; i < reveals.length; i++) {
@@ -189,12 +205,9 @@ window.addEventListener("scroll", () => {
     }
 });
 
-/* ========================================================
-   MARQUEE CONTÍNUO via WAAPI (duplicação do track + swipe)
-   - tooltip on hover/focus (does NOT pause)
-   - click on image toggles pause/resume
-   - swipe/drag support (pointer events)
-   ======================================================== */
+/* ============================
+   MARQUEE CONTÍNUO via WAAPI 
+   ============================ */
 
 function loadImagesFully(images, callback) {
     if (!images || images.length === 0) return callback();
