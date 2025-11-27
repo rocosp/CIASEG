@@ -166,12 +166,13 @@ header .container {
 }
 
 .hero h3 {
-    font-size: 40px;
+    font-size: 38px;
     font-weight: 700;
     color: white;
 }
 
 .hero h2 {
+    font-size: 28px;
     font-weight: 700;
     color: white;
 }
