@@ -51,6 +51,7 @@ header .container {
 }
 
 .logo-title {
+    color: white;
     font-size: 20px;
     margin: 0;
 }
@@ -150,6 +151,12 @@ header .container {
     color: white;
 }
 
+.hero-logo {
+    display: block;
+    margin: 0 auto 20px;
+    max-width: 200px;
+}
+
 .hero::after {
     content: "";
     position: absolute;
@@ -212,11 +219,6 @@ header .container {
     width: 100%;
     border-radius: 16px;
     box-shadow: 0 10px 28px rgba(0,0,0,0.1);
-}
-
-.sobre-logo {
-    max-width: 160px;
-    margin-bottom: 20px;
 }
 
 /* ------------------------------------------------------ */
