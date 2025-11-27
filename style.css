@@ -171,12 +171,6 @@ header .container {
     color: white;
 }
 
-.hero h2 {
-    font-size: 28px;
-    font-weight: 700;
-    color: white;
-}
-
 .hero p {
     font-size: 18px;
     opacity: 0.92;
@@ -219,13 +213,6 @@ header .container {
 
 .sobre-img {
     width: 100%;
-    border-radius: 16px;
-    box-shadow: 0 10px 28px rgba(0,0,0,0.1);
-}
-
-.sobre-logo {
-    max-width: 160px;
-    margin-bottom: 20px;
 }
 
 /* ------------------------------------------------------ */
