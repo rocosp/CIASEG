@@ -11,9 +11,8 @@
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -45,7 +44,6 @@
 <!-- HERO -->
 <section class="hero">
     <div class="content">
-        <img src="assets/logo.png" alt="Logo CIASEG" class="hero-logo">
         <h3>Excelência em sindicâncias e suporte às seguradoras desde 1996.</h3>
         <p>Há quase três décadas, a CIASEG atua com seriedade, eficiência e precisão na apuração de sinistros em todo o território nacional.</p>
         <p>Nossa equipe altamente qualificada oferece assessoria completa aos departamentos de sinistros, garantindo segurança, agilidade e credibilidade em cada etapa do processo.</p>
@@ -177,9 +175,9 @@
 </footer>
 
 <script>
-/* ----------------
-   Menu hamburger
-   ---------------- */
+/* -------------------------
+   Menu hamburger (corrigido)
+   ------------------------- */
 const hamb = document.getElementById("hamburger");
 const menu = document.querySelector(".nav-menu");
 if (hamb && menu) {
@@ -191,9 +189,9 @@ if (hamb && menu) {
     });
 }
 
-/* --------------
-   Reveal items
-   -------------- */
+/* -------------------------
+   Reveal items (mantive)
+   ------------------------- */
 const reveals = document.querySelectorAll(".reveal-item");
 window.addEventListener("scroll", () => {
     for (let i = 0; i < reveals.length; i++) {
@@ -207,9 +205,12 @@ window.addEventListener("scroll", () => {
     }
 });
 
-/* ============================
-   MARQUEE CONTÍNUO via WAAPI 
-   ============================ */
+/* ========================================================
+   MARQUEE CONTÍNUO via WAAPI (duplicação do track + swipe)
+   - tooltip on hover/focus (does NOT pause)
+   - click on image toggles pause/resume
+   - swipe/drag support (pointer events)
+   ======================================================== */
 
 function loadImagesFully(images, callback) {
     if (!images || images.length === 0) return callback();
