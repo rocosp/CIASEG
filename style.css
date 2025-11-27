@@ -240,14 +240,6 @@ header .container {
 /*  VALORES (Cards)                                       */
 /* ------------------------------------------------------ */
 
-.valores {
-    position: relative;
-    background: url("assets/imagem6.png") center/cover no-repeat;
-    padding: 160px 0;
-    text-align: center;
-    color: white;
-}
-
 .valores-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
