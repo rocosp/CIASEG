@@ -172,6 +172,7 @@ header .container {
 }
 
 .hero h3 {
+    color: white;
     font-size: 42px;
     font-weight: 700;
 }
