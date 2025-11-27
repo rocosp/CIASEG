@@ -151,12 +151,6 @@ header .container {
     color: white;
 }
 
-.hero-logo {
-    display: block;
-    margin: 0 auto 20px;
-    max-width: 200px;
-}
-
 .hero::after {
     content: "";
     position: absolute;
@@ -172,14 +166,15 @@ header .container {
 }
 
 .hero h3 {
-    color: white;
     font-size: 42px;
     font-weight: 700;
+    color: white;
 }
 
 .hero p {
     font-size: 18px;
     opacity: 0.92;
+    color: white;
 }
 
 .cta-button {
@@ -220,6 +215,11 @@ header .container {
     width: 100%;
     border-radius: 16px;
     box-shadow: 0 10px 28px rgba(0,0,0,0.1);
+}
+
+.sobre-logo {
+    max-width: 160px;
+    margin-bottom: 20px;
 }
 
 /* ------------------------------------------------------ */
