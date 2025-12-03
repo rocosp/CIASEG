@@ -240,6 +240,22 @@ header .container {
 /*  VALORES (Cards)                                       */
 /* ------------------------------------------------------ */
 
+.valor-icon {
+    width: 38px;       /* tamanho ideal dos ícones */
+    height: 38px;
+    object-fit: contain;
+    margin-right: 10px;
+    vertical-align: middle;
+    filter: drop-shadow(0 0 1px rgba(0,0,0,0.1)); /* leve definição */
+}
+
+.valores-grid h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;          /* separação texto/icone */
+    font-weight: 600;
+}
+
 .valores-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
