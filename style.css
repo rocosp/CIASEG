@@ -384,10 +384,9 @@ header .container {
 /* imagem */
 .contato-imagem img {
     width: 100%;
-    max-width: 420px;
+    max-width: 380px;
     border-radius: 12px;
-    object-fit: cover;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    object-fit: cover;    
 }
 
 /* responsividade */
