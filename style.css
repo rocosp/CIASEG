@@ -241,8 +241,8 @@ header .container {
 /* ------------------------------------------------------ */
 
 .valor-icon {
-    width: 28px;       /* tamanho ideal dos ícones */
-    height: 28px;
+    width: 38px;       /* tamanho ideal dos ícones */
+    height: 38px;
     object-fit: contain;
     margin-right: 10px;
     vertical-align: middle;
