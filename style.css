@@ -294,6 +294,7 @@ header .container {
 
 .carousel-track-wrap {
     display: flex;
+    gap: 28px;
     align-items: center;
     will-change: transform;
 }
@@ -301,7 +302,6 @@ header .container {
 .carousel-track {
     display: flex;
     gap: 28px;
-    margin-right: 28px;
     flex-shrink: 0;
     align-items: center;
 }
