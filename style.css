@@ -368,6 +368,40 @@ header .container {
     font-weight: 600;
 }
 
+.contato-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+}
+
+.contato-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* imagem */
+.contato-imagem img {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* responsividade */
+@media (max-width: 900px) {
+    .contato-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .contato-imagem img {
+        margin: 0 auto;
+    }
+}
+
 /* ------------------------------------------------------ */
 /*  FOOTER                                                */
 /* ------------------------------------------------------ */
