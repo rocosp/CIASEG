@@ -176,8 +176,8 @@
 
 <script>
 /* -------------------------
-   Menu hamburger (corrigido)
-   ------------------------- */
+   Menu hamburger
+------------------------- */
 const hamb = document.getElementById("hamburger");
 const menu = document.querySelector(".nav-menu");
 if (hamb && menu) {
@@ -190,8 +190,8 @@ if (hamb && menu) {
 }
 
 /* -------------------------
-   Reveal items (mantive)
-   ------------------------- */
+   Reveal items
+------------------------- */
 const reveals = document.querySelectorAll(".reveal-item");
 window.addEventListener("scroll", () => {
     for (let i = 0; i < reveals.length; i++) {
@@ -206,10 +206,7 @@ window.addEventListener("scroll", () => {
 });
 
 /* ========================================================
-   MARQUEE CONTÍNUO via WAAPI (duplicação do track + swipe)
-   - tooltip on hover/focus (does NOT pause)
-   - click on image toggles pause/resume
-   - swipe/drag support (pointer events)
+   MARQUEE WAAPI — versão corrigida (sem pulo)
    ======================================================== */
 
 function loadImagesFully(images, callback) {
@@ -220,283 +217,236 @@ function loadImagesFully(images, callback) {
             loaded++;
             if (loaded === images.length) callback();
         } else {
-            img.addEventListener('load', () => {
+            img.addEventListener("load", () => {
                 loaded++;
                 if (loaded === images.length) callback();
-            }, { once: true });
-            img.addEventListener('error', () => {
+            });
+            img.addEventListener("error", () => {
                 loaded++;
                 if (loaded === images.length) callback();
-            }, { once: true });
+            });
         }
     });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const wrapper = document.getElementById('carousel-wrapper');
-    const wrapInner = document.getElementById('carousel-track-wrap');
-    const track = document.getElementById('carousel-track');
-    const tooltip = document.getElementById('carousel-tooltip');
+    const wrapper = document.getElementById("carousel-wrapper");
+    const wrapInner = document.getElementById("carousel-track-wrap");
+    const track = document.getElementById("carousel-track");
+    const tooltip = document.getElementById("carousel-tooltip");
 
     if (!wrapper || !track || !wrapInner) return;
 
-    const images = Array.from(track.querySelectorAll('img'));
-    images.forEach(img => img.setAttribute('tabindex', '0')); // acessibilidade
+    const images = [...track.querySelectorAll("img")];
+    images.forEach(img => img.tabIndex = 0);
 
-    // settings: px per second (ajuste aqui)
-    const pxPerSecond = 90; // quanto maior, mais rápido
+    const pxPerSecond = 90;
+
     let animation = null;
     let duration = 0;
     let trackWidth = 0;
-    let isUserPaused = false; // toggle via click
+    let isUserPaused = false;
     let isPointerDown = false;
     let pointerStartX = 0;
-    let manualOffset = 0; // in px relative to animation
-    let raf = null;
+    let manualOffset = 0;
 
     loadImagesFully(images, initialize);
 
     function initialize() {
-        // clone the track for seamless marquee
-        const clone = track.cloneNode(true);
-        clone.id = 'carousel-track-clone';
-        wrapInner.appendChild(clone);
+        rebuild(true);
 
-        // measure width of original track (full content)
-        trackWidth = track.scrollWidth;
-
-        // if no overflow, do nothing (just keep static display)
-        if (trackWidth <= wrapper.clientWidth) {
-            attachImageHandlers(); // still attach tooltips / click handlers
-            return;
-        }
-
-        // compute duration so that speed ~ pxPerSecond
-        duration = Math.max(3000, Math.round((trackWidth / pxPerSecond) * 1000)); // ms
-
-        // create WAAPI animation on wrapInner (translateX from 0 to -trackWidth)
-        // note: animate the wrapInner element that contains track + clone
-        const keyframes = [
-            { transform: 'translateX(0px)' },
-            { transform: `translateX(-${trackWidth}px)` }
-        ];
-
-        animation = wrapInner.animate(keyframes, {
-            duration: duration,
-            iterations: Infinity,
-            easing: 'linear'
-        });
-
-        // ensure running at start
-        animation.play();
-
-        // attach handlers for tooltip, click-to-pause, drag/swipe
+        // pointer + hover handlers
         attachImageHandlers();
         attachPointerHandlers();
         attachKeyboardHandlers();
 
-        // responsive: recalc on resize
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(rebuildAnimation, 200);
-        });
+        window.addEventListener("resize", debounce(() => rebuild(false), 200));
     }
 
-    function rebuildAnimation() {
-        // Stop and remove possible clone
-        if (!track) return;
-        // remove clone if exists
-        const existingClone = document.getElementById('carousel-track-clone');
-        if (existingClone) existingClone.remove();
+    /* -----------------------------------------
+       REBUILD (corrigido com gap real)
+    ----------------------------------------- */
+    function rebuild(firstLoad = false) {
 
-        // re-clone and reinitialize animation with new measurements
+        // remove clone anterior
+        const oldClone = document.getElementById("carousel-track-clone");
+        if (oldClone) oldClone.remove();
+
+        // cria clone novo
         const clone = track.cloneNode(true);
-        clone.id = 'carousel-track-clone';
+        clone.id = "carousel-track-clone";
         wrapInner.appendChild(clone);
 
-        // new measurements
+        // mede largura real do track
         trackWidth = track.scrollWidth;
-        if (animation) {
-            try { animation.cancel(); } catch (e) {}
-            animation = null;
+
+        // pega gap real usado no CSS
+        const style = getComputedStyle(track);
+        const gap = parseFloat(style.gap) || 0;
+
+        // deslocamento real até o clone
+        const endX = -(trackWidth + gap);
+
+        // se não há overflow, não anima
+        if (trackWidth <= wrapper.clientWidth) {
+            if (animation) animation.cancel();
+            return;
         }
 
-        if (trackWidth <= wrapper.clientWidth) return;
+        duration = Math.max(3000, Math.round((Math.abs(endX) / pxPerSecond) * 1000));
 
-        duration = Math.max(3000, Math.round((trackWidth / pxPerSecond) * 1000));
+        if (animation) animation.cancel();
 
-        const keyframes = [
-            { transform: 'translateX(0px)' },
-            { transform: `translateX(-${trackWidth}px)` }
-        ];
-
-        animation = wrapInner.animate(keyframes, {
+        animation = wrapInner.animate([
+            { transform: "translateX(0px)" },
+            { transform: `translateX(${endX}px)` }
+        ], {
             duration: duration,
             iterations: Infinity,
-            easing: 'linear'
+            easing: "linear"
         });
-
-        // set currentTime according to manualOffset (if user dragged)
-        if (manualOffset) {
-            // normalize manualOffset to [0, trackWidth)
-            let norm = ((-manualOffset) % trackWidth + trackWidth) % trackWidth;
-            const nt = (norm / trackWidth) * duration;
-            animation.currentTime = nt;
-        }
 
         if (!isUserPaused) animation.play();
-        attachImageHandlers(); // reattach if necessary
     }
 
+    /* -----------------------------------------
+       TOOLTIP + CLICK TO PAUSE
+    ----------------------------------------- */
     function attachImageHandlers() {
-        const imgs = Array.from(track.querySelectorAll('img'));
-        imgs.forEach(img => {
-            const caption = img.getAttribute('data-caption') || img.getAttribute('alt') || '';
-            // hover / focus => tooltip (does NOT pause)
-            img.addEventListener('mouseenter', (e) => {
-                showTooltip(e.currentTarget);
-            });
-            img.addEventListener('mouseleave', () => {
-                hideTooltip();
-            });
-            img.addEventListener('focus', (e) => {
-                showTooltip(e.currentTarget);
-            });
-            img.addEventListener('blur', () => {
-                hideTooltip();
-            });
+        images.forEach(img => {
+            const caption = img.dataset.caption || img.alt || "";
 
-            // click => toggle pause/resume (user pause)
-            img.addEventListener('click', (e) => {
+            img.addEventListener("mouseenter", () => showTooltip(img));
+            img.addEventListener("mouseleave", hideTooltip);
+
+            img.addEventListener("focus", () => showTooltip(img));
+            img.addEventListener("blur", hideTooltip);
+
+            img.addEventListener("click", e => {
                 e.stopPropagation();
                 isUserPaused = !isUserPaused;
-                if (animation) {
-                    if (isUserPaused) {
-                        animation.pause();
-                        // visual feedback
-                        img.classList.add('paused');
-                    } else {
-                        animation.play();
-                        img.classList.remove('paused');
-                    }
+                if (isUserPaused) {
+                    animation.pause();
+                    img.classList.add("paused");
+                } else {
+                    animation.play();
+                    img.classList.remove("paused");
                 }
             });
         });
     }
 
-    function attachKeyboardHandlers() {
-        // allow wrapper keyboard control: space to toggle pause
-        wrapper.addEventListener('keydown', (e) => {
-            if (e.code === 'Space') {
-                e.preventDefault();
-                isUserPaused = !isUserPaused;
-                if (animation) {
-                    if (isUserPaused) animation.pause(); else animation.play();
-                }
-            }
-        });
+    function showTooltip(img) {
+        const caption = img.dataset.caption || img.alt || "";
+        tooltip.textContent = caption;
+        tooltip.style.opacity = "1";
+        tooltip.setAttribute("aria-hidden", "false");
+
+        const imgRect = img.getBoundingClientRect();
+        const wrapRect = wrapper.getBoundingClientRect();
+        const center = (imgRect.left + imgRect.right) / 2;
+        tooltip.style.left = `${center - wrapRect.left}px`;
     }
 
+    function hideTooltip() {
+        tooltip.style.opacity = "0";
+        tooltip.setAttribute("aria-hidden", "true");
+    }
+
+    /* -----------------------------------------
+       POINTER SWIPE / DRAG
+    ----------------------------------------- */
     function attachPointerHandlers() {
-        // pointer events (supports touch + mouse)
-        wrapper.addEventListener('pointerdown', onPointerDown, { passive: true });
+        wrapper.addEventListener("pointerdown", onPointerDown);
 
         function onPointerDown(e) {
-            // Only primary button / touch
-            if (e.isPrimary === false) return;
+            if (!e.isPrimary) return;
+
             isPointerDown = true;
             pointerStartX = e.clientX;
-            // pause animation for manual dragging
-            if (animation) {
-                animation.pause();
-            }
-            // compute current transform offset (from animation or manual offset)
-            const computed = getTranslateX(wrapInner);
-            manualOffset = computed; // starting offset
+
+            if (animation) animation.pause();
+
+            manualOffset = getTranslateX(wrapInner);
+
             wrapper.setPointerCapture(e.pointerId);
 
-            wrapper.addEventListener('pointermove', onPointerMove, { passive: false });
-            wrapper.addEventListener('pointerup', onPointerUp);
-            wrapper.addEventListener('pointercancel', onPointerUp);
+            wrapper.addEventListener("pointermove", onPointerMove);
+            wrapper.addEventListener("pointerup", onPointerUp);
+            wrapper.addEventListener("pointercancel", onPointerUp);
         }
 
         function onPointerMove(e) {
             if (!isPointerDown) return;
-            // prevent page scrolling while dragging horizontally
             e.preventDefault();
+
             const dx = e.clientX - pointerStartX;
-            const newOffset = manualOffset + dx;
-            // apply transform directly for instant feedback
-            wrapInner.style.transform = `translateX(${newOffset}px)`;
+            wrapInner.style.transform = `translateX(${manualOffset + dx}px)`;
         }
 
         function onPointerUp(e) {
-            if (!isPointerDown) return;
             isPointerDown = false;
-            wrapper.removeEventListener('pointermove', onPointerMove);
-            wrapper.removeEventListener('pointerup', onPointerUp);
-            wrapper.removeEventListener('pointercancel', onPointerUp);
-            try { wrapper.releasePointerCapture(e.pointerId); } catch (e) {}
-            // compute final offset from inline style or computed style
+
+            wrapper.removeEventListener("pointermove", onPointerMove);
+            wrapper.removeEventListener("pointerup", onPointerUp);
+            wrapper.removeEventListener("pointercancel", onPointerUp);
+
+            wrapper.releasePointerCapture(e.pointerId);
+
             const finalOffset = getTranslateX(wrapInner);
-            // normalize into [0, trackWidth)
-            let norm = ((-finalOffset) % trackWidth + trackWidth) % trackWidth;
-            // set animation currentTime accordingly and resume if not user paused
-            if (animation) {
-                animation.currentTime = (norm / trackWidth) * duration;
-                // remove inline transform so animation controls visual again
-                wrapInner.style.transform = '';
-                if (!isUserPaused) animation.play();
+
+            const gap = parseFloat(getComputedStyle(track).gap) || 0;
+            const total = trackWidth + gap;
+
+            let norm = ((-finalOffset) % total + total) % total;
+
+            animation.currentTime = (norm / total) * duration;
+
+            wrapInner.style.transform = "";
+
+            if (!isUserPaused) animation.play();
+        }
+    }
+
+    /* -----------------------------------------
+       KEYBOARD PAUSE (SPACE)
+    ----------------------------------------- */
+    function attachKeyboardHandlers() {
+        wrapper.addEventListener("keydown", e => {
+            if (e.code === "Space") {
+                e.preventDefault();
+                isUserPaused = !isUserPaused;
+                if (isUserPaused) animation.pause();
+                else animation.play();
             }
-        }
+        });
     }
 
-    /* Tooltip logic */
-    function showTooltip(imgEl) {
-        const caption = imgEl.getAttribute('data-caption') || imgEl.getAttribute('alt') || '';
-        if (!caption) return;
-        tooltip.textContent = caption;
-        tooltip.setAttribute('aria-hidden', 'false');
-        tooltip.style.opacity = '1';
-
-        // position tooltip centered above image relative to wrapper
-        const imgRect = imgEl.getBoundingClientRect();
-        const wrapRect = wrapper.getBoundingClientRect();
-        const center = (imgRect.left + imgRect.right) / 2;
-        const left = center - wrapRect.left;
-        tooltip.style.left = `${left}px`;
-        tooltip.style.transform = 'translateX(-50%) translateY(-12px)';
+    /* -----------------------------------------
+       HELPERS
+    ----------------------------------------- */
+    function debounce(fn, delay) {
+        let t;
+        return function () {
+            clearTimeout(t);
+            t = setTimeout(() => fn.apply(this, arguments), delay);
+        };
     }
 
-    function hideTooltip() {
-        tooltip.style.opacity = '0';
-        tooltip.setAttribute('aria-hidden', 'true');
-    }
-
-    /* helper: get numeric translateX of element (considers inline style first) */
     function getTranslateX(el) {
-        // prefer inline style if present
-        const inline = el.style.transform;
-        if (inline && inline.indexOf('translateX') !== -1) {
-            const m = inline.match(/translateX\((-?\d+(?:\.\d+)?)px\)/);
-            if (m) return parseFloat(m[1]);
-        }
-        // else computed style
         const style = window.getComputedStyle(el);
-        const transform = style.transform;
-        if (!transform || transform === 'none') return 0;
-        // matrix(a, b, c, d, tx, ty)
-        const vals = transform.match(/matrix\((.+)\)/);
-        if (vals) {
-            const parts = vals[1].split(',').map(s => parseFloat(s.trim()));
-            // tx is parts[4]
-            if (parts.length === 6) return parts[4];
-        }
-        return 0;
+        const matrix = style.transform;
+
+        if (!matrix || matrix === "none") return 0;
+
+        const values = matrix.match(/matrix\((.+)\)/);
+        if (!values) return 0;
+
+        const parts = values[1].split(",").map(v => parseFloat(v.trim()));
+        return parts[4] || 0;
     }
 });
 </script>
-
+    
 </body>
 </html>
