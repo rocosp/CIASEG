@@ -242,7 +242,7 @@ header .container {
 
 .valor-icon {
     width: 28px;       /* tamanho ideal dos ícones */
-    height: 38px;
+    height: 28px;
     object-fit: contain;
     margin-right: 10px;
     vertical-align: middle;
