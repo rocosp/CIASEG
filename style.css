@@ -200,7 +200,7 @@ header .container {
 }
 
 .hero .cta-button:hover {
-    background: #c8cacc;
+    background: #f7f7f7;
     transform: translateY(-2px);
 }
 
