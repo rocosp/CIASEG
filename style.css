@@ -74,6 +74,11 @@ header .container {
     border-radius: 6px;
 }
 
+.restrito-btn:hover {
+    background: #1e47c7;
+    transform: translateY(-2px);
+}
+
 /* ------------------------------------------------------ */
 /*  HAMBURGER (Mobile)                                    */
 /* ------------------------------------------------------ */
@@ -192,6 +197,11 @@ header .container {
     border-radius: 10px;
     text-decoration: none;
     font-weight: 600;
+}
+
+.cta-button:hover {
+    background: #4b5563;
+    transform: translateY(-2px);
 }
 
 /* ------------------------------------------------------ */
@@ -450,13 +460,18 @@ footer p {
     text-align: center;
 }
 
-.restrito-container .cta-button {
+.cta-button {
     display: inline-block;
     background: #2563eb;
     color: white;
     padding: 14px 20px;
     border-radius: 8px;
     text-decoration: none;
+}
+
+.cta-btn:hover {
+    background: #1e47c7;
+    transform: translateY(-2px);
 }
 
 .restrito-logo {
@@ -481,4 +496,5 @@ footer p {
 
 .back-btn:hover {
     background: #4b5563;
+    transform: translateY(-2px);
 }
