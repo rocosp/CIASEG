@@ -188,7 +188,7 @@ header .container {
     color: white;
 }
 
-.cta-button {
+.hero .cta-button {
     display: inline-block;
     margin-top: 24px;
     padding: 14px 26px;
@@ -199,8 +199,8 @@ header .container {
     font-weight: 600;
 }
 
-.cta-button:hover {
-    background: #4b5563;
+.hero .cta-button:hover {
+    background: #c8cacc;
     transform: translateY(-2px);
 }
 
