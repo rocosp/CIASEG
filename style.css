@@ -544,3 +544,18 @@ footer p {
         height: 1100px;
     }
 }
+
+/* ------------------------------------------------------ */
+/* Microsoft Forms – Termo LGPD                           */
+/* ------------------------------------------------------ */
+
+.forms-wrapper {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.forms-wrapper iframe {
+    width: 100%;
+    min-height: 85vh;     /* garante formulário inteiro */
+    border: none;
+}
