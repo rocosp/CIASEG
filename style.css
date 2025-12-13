@@ -462,6 +462,7 @@ footer p {
 
 .restrito-container {
     text-align: center;
+    max-width: 720px;
 }
 
 .cta-button {
