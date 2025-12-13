@@ -533,14 +533,14 @@ footer p {
 
 .forms-wrapper iframe {
     width: 100%;
-    max-width: 820px;      /* largura confortável no desktop */
-    height: 900px;         /* exibe o formulário inteiro */
+    max-width: 900px;
+    height: 1050px;
     border: none;
 }
 
-/* Ajuste específico para mobile */
+/* Mobile */
 @media (max-width: 768px) {
     .forms-wrapper iframe {
-        height: 1000px;    /* evita scroll interno no celular */
+        height: 1100px;
     }
 }
