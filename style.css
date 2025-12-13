@@ -522,30 +522,6 @@ footer p {
 }
 
 /* ------------------------------------------------------ */
-/*  MICROSOFT FORMS – LGPD SINDICANTES                    */
-/* ------------------------------------------------------ */
-
-.forms-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-}
-
-.forms-wrapper iframe {
-    width: 100%;
-    max-width: 900px;
-    height: 1050px;
-    border: none;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-    .forms-wrapper iframe {
-        height: 1100px;
-    }
-}
-
-/* ------------------------------------------------------ */
 /* Microsoft Forms – Termo LGPD                           */
 /* ------------------------------------------------------ */
 
@@ -554,15 +530,16 @@ footer p {
     margin-top: 40px;
 }
 
+/* Desktop */
 .forms-wrapper iframe {
     width: 100%;
-    min-height: 85vh;     /* garante formulário inteiro */
+    min-height: 1200px; /* garante formulário inteiro */
     border: none;
 }
 
 /* Mobile */
 @media (max-width: 768px) {
     .forms-wrapper iframe {
-        min-height: 95vh;
+        min-height: 1500px;
     }
 }
