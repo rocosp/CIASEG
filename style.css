@@ -543,3 +543,34 @@ footer p {
         min-height: 1500px;
     }
 }
+
+/* ------------------------------------------------------ */
+/*  VISUALIZAÇÃO DE PDF – POLÍTICA DE PRIVACIDADE         */
+/* ------------------------------------------------------ */
+
+.pdf-viewer-section h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.pdf-viewer {
+    width: 100%;
+    height: 85vh;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    background: #fff;
+}
+
+.pdf-viewer iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .pdf-viewer {
+        height: 80vh;
+    }
+}
